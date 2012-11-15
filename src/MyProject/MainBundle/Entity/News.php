@@ -99,55 +99,5 @@ class News
     {
         return $this->text;
     }
-    /**
-     * @var datetime $created_at
-     */
-    private $created_at;
-
-    /**
-     * @var datetime $updated_at
-     */
-    private $updated_at;
-
-
-    /**
-     * Set created_at
-
-     */
-    public function setCreatedAt()
-    {
-        if(!$this->getCreatedAt())
-        {
-            $this->created_at = new \DateTime();
-        }
-    }
-
-    /**
-     * Get created_at
-     *
-     * @return datetime 
-     */
-    public function getCreatedAt()
-    {
-        return $this->created_at;
-    }
-
-    /**
-     * Set updated_at
-
-     */
-    public function setUpdatedAt()
-    {
-        $this->updated_at = new \DateTime();
-    }
-
-    /**
-     * Get updated_at
-     *
-     * @return datetime 
-     */
-    public function getUpdatedAt()
-    {
-        return $this->updated_at;
-    }
+ 
 }

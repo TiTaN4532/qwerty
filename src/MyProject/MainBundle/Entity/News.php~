@@ -118,7 +118,7 @@ class News
     {
         if(!$this->getCreatedAt())
         {
-            $this->created_at = new \DateTime();
+            $this->created_at = new \DateTime('now');
         }
     }
 
@@ -138,7 +138,7 @@ class News
      */
     public function setUpdatedAt()
     {
-        $this->updated_at = new \DateTime();
+        $this->updated_at = new \DateTime('now');
     }
 
     /**
