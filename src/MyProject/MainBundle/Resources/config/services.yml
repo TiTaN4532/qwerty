@@ -1,0 +1,6 @@
+services:
+    myproject.mian.admin.news:
+        class: MyProject\MainBundle\Admin\NewsAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: main, label: News }
+        arguments: [null, MyProject\MainBundle\Entity\News, MyProjectMainBundle:NewsAdmin]
