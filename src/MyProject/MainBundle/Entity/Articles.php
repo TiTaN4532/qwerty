@@ -5,9 +5,9 @@ namespace MyProject\MainBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * MyProject\MainBundle\Entity\News
+ * MyProject\MainBundle\Entity\Articles
  */
-class News
+class Articles
 {
     /**
      * @var integer $id
@@ -20,14 +20,19 @@ class News
     private $name;
 
     /**
-     * @var string $description
-     */
-    private $description;
-
-    /**
      * @var text $text
      */
     private $text;
+
+    /**
+     * @var datetime $created_at
+     */
+    private $created_at;
+
+    /**
+     * @var datetime $updated_at
+     */
+    private $updated_at;
 
 
     /**
@@ -61,26 +66,6 @@ class News
     }
 
     /**
-     * Set description
-     *
-     * @param string $description
-     */
-    public function setDescription($description)
-    {
-        $this->description = $description;
-    }
-
-    /**
-     * Get description
-     *
-     * @return string 
-     */
-    public function getDescription()
-    {
-        return $this->description;
-    }
-
-    /**
      * Set text
      *
      * @param text $text
@@ -101,25 +86,13 @@ class News
     }
 
     /**
-     * @var datetime $created_at
-     */
-    private $created_at;
-
-    /**
-     * @var datetime $updated_at
-     */
-    private $updated_at;
-
-
-    /**
      * Set created_at
      */
     public function setCreatedAt()
     {
-        if(!$this->getCreatedAt())
-        {
-            $this->created_at = new \DateTime();
-        }
+        print date_format(new \DateTime(),"Y-m-d");
+        exit();
+        $this->created_at = date_format(new \DateTime(),"Y-m-d");
     }
 
     /**

@@ -99,6 +99,7 @@ class News
     {
         return $this->text;
     }
+
     /**
      * @var datetime $created_at
      */
@@ -112,13 +113,12 @@ class News
 
     /**
      * Set created_at
-
      */
     public function setCreatedAt()
     {
         if(!$this->getCreatedAt())
         {
-            $this->created_at = new \DateTime('now');
+            $this->created_at = new \DateTime();
         }
     }
 
@@ -134,11 +134,10 @@ class News
 
     /**
      * Set updated_at
-
      */
     public function setUpdatedAt()
     {
-        $this->updated_at = new \DateTime('now');
+        $this->updated_at = new \DateTime();
     }
 
     /**

@@ -1,7 +1,11 @@
 {% extends 'MyProjectMainBundle::main.html.twig' %}
-{%  block title %} {{ title }} {% endblock %}
-{% block body %}
-    <h1>{{ body }}</h1>
 
-    {% block content %}{% endblock %}
+{%  block title %} {{ title }} {% endblock %}
+
+{% block body %}
+
+        <h2>{{ body.name }}</h2>
+        <p>{{ body.description }}</p>
+        <p>{{ body.text }}</p>
+
 {% endblock %}

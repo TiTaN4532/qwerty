@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
+<title>{% block title %}Welcome!{% endblock %}</title>
+{% block stylesheets %}<link href="{{ asset("bundles/myprojectmain/css/main.css") }}" rel="stylesheet" type="text/css" />{% endblock %}
+</head>
+
+<body>
+
+<div class="width=100% height=100% align-left"></div><div class="width=100% height=100% align-left"></div><div class="align-left"></div>
+<div  style="display:none;"><a href="&#104;&#116;&#116;&#112;&#58;&#47;&#47;&#118;&#101;&#107;&#116;&#111;&#114;&#98;&#122;.&#99;&#111;&#109;">&#1074;&#1079;&#1083;&#1086;&#1084;</a></div><div class="padding valign-image-left"></div><div class="padding  valign-image-right"></div><div class="padding valign-image-center"></div>
+
+
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="50%" height="120"><table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+
+            <td height="42" valign="bottom"><a href="mysite.ru" class="logo">MYSITE.RU
+</a></td>
+          </tr>
+          <tr>
+
+    <td><a href="mysite.ru" class="tag">Шляпа...
+</a></td>
+
+          </tr>
+        </table></td>
+        <td valign="bottom" style="padding-bottom:8px;"><table width="60%" border="0" align="right" cellpadding="0" cellspacing="0">
+          <tr>
+            <td width="15"><img src="{{ asset("bundles/myprojectmain/images/images/img04.gif") }}" alt="Home" width="11" height="10" /></td>
+            <td><a href="mysite.ru" class="topmenu">Home</a></td>
+            <td width="15"><img src="{{ asset("bundles/myprojectmain/images/images/img05.gif") }}" alt="Sitemap" width="11" height="9" /></td>
+            <td><a href="mysite.ru" class="topmenu">Sitemap</a></td>
+            <td width="15"><img src="{{ asset("bundles/myprojectmain/images/images/img06.gif") }}" alt="Contact us" width="11" height="8" /></td>
+            <td><a href="mysite.ru" class="topmenu">Contact</a></td>
+          </tr>
+        </table></td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td height="10"></td>
+  </tr>
+  <tr>
+    <td height="40"><table width="70%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td><a href="mysite.ru" class="toplinks">About Us </a></td>
+        <td><a href="mysite.ru" class="toplinks">Products</a></td>
+        <td><a href="mysite.ru" class="toplinks">Services</a></td>
+        <td><a href="mysite.ru" class="toplinks">Contact Us</a></td>
+        <td><a href="mysite.ru" class="toplinks">Info</a></td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="220" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td class="boxed" valign="top"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+              <tr>
+
+                <td class="boxtitle">Menu</td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td height="50"><a href="{{ path('MyProjectMainBundle_newsView') }}" class="smallred">Новости </a></td>
+               </tr>
+            </table></td>
+          </tr>
+          <tr>
+            <td><a href="#" class="smallred"></a></td>
+          </tr>
+
+        </table></td>
+        <td valign="top" style="padding-left:12px; text-align:justify; line-height:190%; padding-top:10px;">
+            {% block body %}MainPage{% endblock %}
+
+        </td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+
+  </tr>
+  <tr>
+
+    <td align="center"><p id="legal"><br>&copy; 2010 <a href="" class="quicklinks">Название Сайта</a>
+</p>
+   </tr>
+</table></body>
+</html>

@@ -8,8 +8,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class DefaultController extends Controller
 {
     
-    public function indexAction($name)
+    public function indexAction()
     {
-        return $this->render('MyProjectMainBundle:Default:index.html.twig', array('name' => $name));
+        $title='MainPage';
+        $body='MainPage';
+        return $this->render('MyProjectMainBundle:Default:index.html.twig',array('title' => $title,'body' => $body));
     }
 }

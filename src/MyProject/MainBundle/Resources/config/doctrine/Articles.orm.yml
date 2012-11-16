@@ -1,6 +1,6 @@
-MyProject\MainBundle\Entity\News:
+MyProject\MainBundle\Entity\Articles:
   type: entity
-  table: news
+  table: articles
   id:
     id:
       type: integer
@@ -10,10 +10,6 @@ MyProject\MainBundle\Entity\News:
       type: string
       length: 255
       unique: true
-    description:
-        type: string
-        length: 255
-        unique: true
     text:
         type: text
     created_at:
@@ -24,5 +20,3 @@ MyProject\MainBundle\Entity\News:
 lifecycleCallbacks:
     prePersist: [ setCreatedAtValue ]
     preUpdate: [ setUpdatedAtValue ]
-
-
