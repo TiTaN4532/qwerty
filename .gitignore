@@ -1,0 +1,12 @@
+/web/bundles/
+/app/bootstrap*
+/app/cache/*
+/app/logs/*
+/vendor/
+/app/config/parameters.yml
+<<<<<<< HEAD
+/.idea/
+/nbproject/
+=======
+/.idea/
+>>>>>>> 9dd87327349a685b09e7b2293e31cf1a68845fd0
