@@ -1,0 +1,11 @@
+MyProjectMainBundle_homepage:
+    pattern:  /
+    defaults: { _controller: MyProjectMainBundle:Default:index }
+
+MyProjectMainBundle_newsView:
+    pattern:  /news
+    defaults: { _controller: MyProjectMainBundle:News:View }
+
+MyProjectMainBundle_newsViewId:
+    pattern:  /news/{id}
+    defaults: { _controller: MyProjectMainBundle:News:ViewId }
