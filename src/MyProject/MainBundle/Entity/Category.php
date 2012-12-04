@@ -5,9 +5,9 @@ namespace MyProject\MainBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * MyProject\MainBundle\Entity\News
+ * MyProject\MainBundle\Entity\Category
  */
-class News
+class Category
 {
     /**
      * @var integer $id
@@ -25,11 +25,15 @@ class News
     private $description;
 
     /**
-     * @var text $text
+     * @var MyProject\MainBundle\Entity\Products
      */
-    private $text;
+    private $products;
 
-
+    public function __construct()
+    {
+        $this->products = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
     /**
      * Get id
      *
@@ -81,72 +85,22 @@ class News
     }
 
     /**
-     * Set text
+     * Add products
      *
-     * @param text $text
+     * @param MyProject\MainBundle\Entity\Products $products
      */
-    public function setText($text)
+    public function addProducts(\MyProject\MainBundle\Entity\Products $products)
     {
-        $this->text = $text;
+        $this->products[] = $products;
     }
 
     /**
-     * Get text
+     * Get products
      *
-     * @return text 
+     * @return Doctrine\Common\Collections\Collection 
      */
-    public function getText()
+    public function getProducts()
     {
-        return $this->text;
-    }
-
-    /**
-     * @var datetime $created_at
-     */
-    private $created_at;
-
-    /**
-     * @var datetime $updated_at
-     */
-    private $updated_at;
-
-
-    /**
-     * Set created_at
-     */
-    public function setCreatedAt()
-    {
-        if(!$this->getCreatedAt())
-        {
-            $this->created_at = new \DateTime();
-        }
-    }
-
-    /**
-     * Get created_at
-     *
-     * @return datetime 
-     */
-    public function getCreatedAt()
-    {
-        return $this->created_at;
-    }
-
-    /**
-     * Set updated_at
-     */
-    public function setUpdatedAt()
-    {
-        $this->updated_at = new \DateTime();
-    }
-
-    /**
-     * Get updated_at
-     *
-     * @return datetime 
-     */
-    public function getUpdatedAt()
-    {
-        return $this->updated_at;
+        return $this->products;
     }
 }

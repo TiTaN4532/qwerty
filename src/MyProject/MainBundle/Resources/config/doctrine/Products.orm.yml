@@ -1,0 +1,36 @@
+MyProject\MainBundle\Entity\Products:
+  type: entity
+  table: products
+  id:
+    id:
+      type: integer
+      generator: { strategy: AUTO }
+  fields:
+    name:
+      type: string
+      length: 255
+      unique: true
+    description:
+      type: string
+      length: 255
+    image:
+      type: string
+      length: 255
+    created_at:
+      type: datetime
+      nullable: true
+    updated_at:
+      type: datetime
+      nullable: true
+  oneToMany:
+    imsges:
+      targetEntity: Images
+      mappedBy: product
+  manyToOne:
+    category:
+      targetEntity: Category
+      inversedBy: products
+      joinColumn:
+        name: category_id
+        referencedColumnName: id
+  

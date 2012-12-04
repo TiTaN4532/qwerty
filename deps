@@ -105,4 +105,10 @@
     git=https://github.com/sonata-project/SonataIntlBundle.git
     target=/bundles/Sonata/IntlBundle
 
+[SonataMediaBundle]
+    git=https://github.com/sonata-project/SonataMediaBundle.git
+    target=/bundles/Sonata/MediaBundle
 
+[SonataEasyExtendsBundle]
+    git=https://github.com/sonata-project/SonataEasyExtendsBundle.git
+    target=/bundles/Sonata/SonataEasyExtendsBundle

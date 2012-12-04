@@ -46,6 +46,10 @@ doctrine:
     orm:
         auto_generate_proxy_classes: %kernel.debug%
         auto_mapping: true
+        entity_managers:
+            default:
+                mappings:
+                    SonataMediaBundle: ~
 
 # Swiftmailer Configuration
 swiftmailer:
@@ -71,3 +75,26 @@ sonata_block:
         sonata.block.service.action:
         sonata.block.service.rss:
 
+sonata_media:
+    default_context: default
+    db_driver: doctrine_orm 
+    contexts:
+        default:  
+            providers:
+                - sonata.media.provider.dailymotion
+                - sonata.media.provider.youtube
+                - sonata.media.provider.image
+                - sonata.media.provider.file
+
+            formats:
+                small: { width: 100 , quality: 70}
+                big:   { width: 500 , quality: 70}
+
+    cdn:
+        server:
+            path: /uploads/media 
+
+    filesystem:
+        local:
+            directory:  %kernel.root_dir%/../web/uploads/media
+            create:     false

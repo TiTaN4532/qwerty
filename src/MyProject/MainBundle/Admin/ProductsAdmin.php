@@ -8,7 +8,7 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Validator\ErrorElement;
 use Sonata\AdminBundle\Form\FormMapper;
 
-class NewsAdmin extends Admin
+class ProductsAdmin extends Admin
 {
     // setup the default sort column and order
     protected $datagridValues = array(
@@ -19,9 +19,12 @@ class NewsAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('name',null, array('label' => 'Название'))
+            ->with('General')
             ->add('description',null, array('label' => 'Описание'))
-            ->add('text',null, array('label' => 'Текст'))
+            ->end()
+            ->with('qwe')
+            ->add('image','file', array('label' => 'Описание'))
+
         ;
     }
 

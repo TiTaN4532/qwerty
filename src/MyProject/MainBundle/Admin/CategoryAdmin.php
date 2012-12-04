@@ -8,19 +8,21 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Validator\ErrorElement;
 use Sonata\AdminBundle\Form\FormMapper;
 
-class ArticlesAdmin extends Admin
+use Knp\Menu\ItemInterface as MenuItemInterface;
+
+class CategoryAdmin extends Admin
 {
     // setup the default sort column and order
     protected $datagridValues = array(
         '_sort_order' => 'DESC',
-        '_sort_by' => 'created_at'
+        '_sort_by' => 'id'
     );
 
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
             ->add('name',null, array('label' => 'Название'))
-            ->add('text',null, array('label' => 'Текст'))
+            ->add('description',null, array('label' => 'Описание'))
         ;
     }
 
@@ -34,9 +36,8 @@ class ArticlesAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->addIdentifier('id')
-            ->add('name', null, array('label' => 'Название'))
-            ->add('created_at', null, array('label' => 'Дата создания'));
+               ->addIdentifier('name', null, array('label' => 'Название'))
         ;
     }
+
 }
