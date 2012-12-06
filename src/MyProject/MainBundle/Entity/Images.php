@@ -6,25 +6,57 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * MyProject\MainBundle\Entity\Images
+ *
+ * @ORM\Table()
+ * @ORM\Entity
  */
 class Images
 {
     /**
      * @var integer $id
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
     /**
      * @var string $name
+     *
+     * @ORM\Column(name="name", type="string", length=255)
      */
     private $name;
 
     /**
-     * @var string $desctiption
+     * @var $product
+     *
+     * @ORM\ManyToOne(targetEntity="Products", inversedBy="images")
+     * @ORM\JoinColumn(name="product_id", referencedColumnName="id")
+     *
      */
-    private $desctiption;
+    private $product;
 
+     /**
+     * Set product
+     *
+     * @param \MyProject\MainBundle\Entity\Products $product
+     */
+    public function setProduct(\MyProject\MainBundle\Entity\Products $product)
+    {
+        $this->product = $product;
+        return $this;
+    }
 
+    /**
+     * Get product
+     *
+     * @return \MyProject\MainBundle\Entity\Products
+     */
+    public function getProduct()
+    {
+        return $this->product;
+    }
     /**
      * Get id
      *
@@ -56,22 +88,26 @@ class Images
     }
 
     /**
-     * Set desctiption
+     * Set product_id
      *
-     * @param string $desctiption
+     * @param integer $productId
      */
-    public function setDesctiption($desctiption)
+    public function setProductId($productId)
     {
-        $this->desctiption = $desctiption;
+        $this->product_id = $productId;
     }
 
     /**
-     * Get desctiption
+     * Get product_id
      *
-     * @return string 
+     * @return integer 
      */
-    public function getDesctiption()
+    public function getProductId()
     {
-        return $this->desctiption;
+        return $this->product_id;
+    }
+     public function __toString()
+    {
+        return $this->name;
     }
 }

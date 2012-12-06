@@ -6,44 +6,55 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * MyProject\MainBundle\Entity\Products
+ *
+ * @ORM\Table()
+ * @ORM\Entity
  */
 class Products
 {
     /**
      * @var integer $id
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
     /**
      * @var string $name
+     *
+     * @ORM\Column(name="name", type="string", length=255)
      */
     private $name;
 
     /**
-     * @var string $desctiption
+     * @var text $description
+     *
+     * @ORM\Column(name="description", type="text")
      */
-    private $desctiption;
-
-    /**
-     * @var datetime $created_at
+    private $description;
+     /**
+     * @var $prodGallery
+     *
+     * @ORM\ManyToOne(targetEntity="\Application\Sonata\MediaBundle\Entity\Gallery")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="gallery_id", referencedColumnName="id")
+     * })
+     * })
      */
-    private $created_at;
-
-    /**
-     * @var datetime $updated_at
+    private $prodGallery;
+/**
+     * @var $images
+     *
+     * @ORM\OneToMany(targetEntity="Images", mappedBy="product", cascade={"all"}, orphanRemoval=true)
      */
-    private $updated_at;
-
-    /**
-     * @var MyProject\MainBundle\Entity\Images
-     */
-    private $imsges;
-
-    public function __construct()
-    {
-        $this->imsges = new \Doctrine\Common\Collections\ArrayCollection();
-    }
+    protected $images;
     
+    function __construct()
+    {
+       $this->images = new \Doctrine\Common\Collections\ArrayCollection();
+    }
     /**
      * Get id
      *
@@ -75,94 +86,9 @@ class Products
     }
 
     /**
-     * Set desctiption
-     *
-     * @param string $desctiption
-     */
-    public function setDesctiption($desctiption)
-    {
-        $this->desctiption = $desctiption;
-    }
-
-    /**
-     * Get desctiption
-     *
-     * @return string 
-     */
-    public function getDesctiption()
-    {
-        return $this->desctiption;
-    }
-
-    /**
-     * Set created_at
-     *
-     * @param datetime $createdAt
-     */
-    public function setCreatedAt($createdAt)
-    {
-        $this->created_at = $createdAt;
-    }
-
-    /**
-     * Get created_at
-     *
-     * @return datetime 
-     */
-    public function getCreatedAt()
-    {
-        return $this->created_at;
-    }
-
-    /**
-     * Set updated_at
-     *
-     * @param datetime $updatedAt
-     */
-    public function setUpdatedAt($updatedAt)
-    {
-        $this->updated_at = $updatedAt;
-    }
-
-    /**
-     * Get updated_at
-     *
-     * @return datetime 
-     */
-    public function getUpdatedAt()
-    {
-        return $this->updated_at;
-    }
-
-    /**
-     * Add imsges
-     *
-     * @param MyProject\MainBundle\Entity\Images $imsges
-     */
-    public function addImages(\MyProject\MainBundle\Entity\Images $imsges)
-    {
-        $this->imsges[] = $imsges;
-    }
-
-    /**
-     * Get imsges
-     *
-     * @return Doctrine\Common\Collections\Collection 
-     */
-    public function getImsges()
-    {
-        return $this->imsges;
-    }
-    /**
-     * @var string $description
-     */
-    private $description;
-
-
-    /**
      * Set description
      *
-     * @param string $description
+     * @param text $description
      */
     public function setDescription($description)
     {
@@ -172,60 +98,69 @@ class Products
     /**
      * Get description
      *
-     * @return string 
+     * @return text 
      */
     public function getDescription()
     {
         return $this->description;
     }
-    /**
-     * @var integer $category_id
-     */
-    private $category_id;
-
-
-    /**
-     * Set category_id
+     /**
+     * Add images
      *
-     * @param integer $categoryId
+     * @param \MyProject\MainBundle\Entity\Images $images
      */
-    public function setCategoryId($categoryId)
+     public function addImages(\MyProject\MainBundle\Entity\Images $images)
     {
-        $this->category_id = $categoryId;
+        $this->images[] = $images;
     }
 
     /**
-     * Get category_id
+     * Get images
      *
-     * @return integer 
+     * @return Doctrine\Common\Collections\Collection
      */
-    public function getCategoryId()
+    public function getImages()
     {
-        return $this->category_id;
-    }
-    /**
-     * @var string $image
-     */
-    private $image;
-
-
-    /**
-     * Set image
-     *
-     * @param string $image
-     */
-    public function setImage($image)
-    {
-        $this->image = $image;
+        return $this->images;
     }
 
-    /**
-     * Get image
-     *
-     * @return string 
-     */
-    public function getImage()
+
+    public function setImages( $images)
     {
-        return $this->image;
+        $this->images= $images;
+
+        //foreach ( $this->newsLinks  as $link) $link->setPos (555);
+
+        foreach ($this->images as $pos => $link)
+        {
+           // print '<br>'.$link.' '.$pos;
+            $link->setProduct ($this); //->setPos ($pos);
+        }
+      /// die ('xxxxxxx');
+    }
+
+
+    function __toString()
+    {
+        return $this->getid() ? strval($this->getid()) : '123';
+    }
+   /**
+     * Set prodGallery
+     *
+     * @param \Application\Sonata\MediaBundle\Entity\Gallery $prodGallery
+     */
+    public function setProdGallery(\Application\Sonata\MediaBundle\Entity\Gallery $prodGallery)
+    {
+        $this->prodGallery = $prodGallery;
+    }
+
+    /**
+     * Get prodCategory
+     *
+     * @return \Application\Sonata\MediaBundle\Entity\Gallery
+     */
+    public function getProdGallery()
+    {
+        return $this->prodGallery;
     }
 }
