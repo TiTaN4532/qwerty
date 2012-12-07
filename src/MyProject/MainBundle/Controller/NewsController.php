@@ -14,7 +14,8 @@ class NewsController extends Controller
         //$news=$this->getDoctrine()->getRepository('MyProjectMainBundle:News')->findAll();
         $medias=$this->getDoctrine()->getRepository('Application\Sonata\MediaBundle\Entity\Media')->find(1);
       //   $view=new MediaHelper();
-        echo $view->thumbnail($media, 'small');        
+        print_r($medias->getId());
+      //  echo $view->thumbnail($media, 'small');        
 
         exit();
         $title='News';

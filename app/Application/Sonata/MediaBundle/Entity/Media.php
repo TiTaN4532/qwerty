@@ -28,6 +28,7 @@ class Media extends BaseMedia
      */
     protected $id;
 
+    protected $productHasMedias;
     /**
      * Get id
      *
@@ -36,5 +37,14 @@ class Media extends BaseMedia
     public function getId()
     {
         return $this->id;
+    }
+      public function setProductHasMedias($productHasMedias)
+    {
+        $this->productHasMedias = $productHasMedias;
+    }
+
+    public function getProductHasMedias()
+    {
+        return $this->productHasMedias;
     }
 }

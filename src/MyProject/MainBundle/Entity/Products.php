@@ -44,16 +44,21 @@ class Products
      * })
      */
     private $prodGallery;
-/**
-     * @var $images
+     /**
+     * @var $productHasMedias
      *
-     * @ORM\OneToMany(targetEntity="Images", mappedBy="product", cascade={"all"}, orphanRemoval=true)
+     * @ORM\ManyToMany(targetEntity="\Application\Sonata\MediaBundle\Entity\Media")
+     * @ORM\JoinTable(name="ProductHasMedia",
+     *      joinColumns={@ORM\JoinColumn(name="product_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="media_id", referencedColumnName="id")}
+     * )
      */
-    protected $images;
+    private $productHasMedias;
+
     
     function __construct()
     {
-       $this->images = new \Doctrine\Common\Collections\ArrayCollection();
+       $this->productHasMedia = new \Doctrine\Common\Collections\ArrayCollection();
     }
     /**
      * Get id
@@ -104,42 +109,8 @@ class Products
     {
         return $this->description;
     }
-     /**
-     * Add images
-     *
-     * @param \MyProject\MainBundle\Entity\Images $images
-     */
-     public function addImages(\MyProject\MainBundle\Entity\Images $images)
-    {
-        $this->images[] = $images;
-    }
 
-    /**
-     * Get images
-     *
-     * @return Doctrine\Common\Collections\Collection
-     */
-    public function getImages()
-    {
-        return $this->images;
-    }
-
-
-    public function setImages( $images)
-    {
-        $this->images= $images;
-
-        //foreach ( $this->newsLinks  as $link) $link->setPos (555);
-
-        foreach ($this->images as $pos => $link)
-        {
-           // print '<br>'.$link.' '.$pos;
-            $link->setProduct ($this); //->setPos ($pos);
-        }
-      /// die ('xxxxxxx');
-    }
-
-
+    
     function __toString()
     {
         return $this->getid() ? strval($this->getid()) : '123';
@@ -153,9 +124,8 @@ class Products
     {
         $this->prodGallery = $prodGallery;
     }
-
-    /**
-     * Get prodCategory
+     /**
+     * Get prodGallery
      *
      * @return \Application\Sonata\MediaBundle\Entity\Gallery
      */
@@ -163,4 +133,30 @@ class Products
     {
         return $this->prodGallery;
     }
+
+ public function setProductHasMedias($productHasMedias)
+    {
+        foreach ($productHasMedias as $productHasMedia) {
+            $productHasMedia->setProductHasMedias($this);
+        }
+
+        $this->productHasMedias = $productHasMedias;
+    }
+
+
+    public function getProductHasMedias()
+    {
+        return $this->productHasMedias;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function addProductHasMedias(ProductHasMedia $productHasMedia)
+    {
+        $productHasMedia->setGallery($this);
+
+        $this->productHasMedia[] = $productHasMedia;
+    }
+   
 }

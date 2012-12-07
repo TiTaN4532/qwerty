@@ -9,8 +9,11 @@ use Sonata\AdminBundle\Validator\ErrorElement;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
 
+
+
 class ProductsAdmin extends Admin
 {
+ 
     // setup the default sort column and order
     protected $datagridValues = array(
         '_sort_order' => 'DESC',
@@ -33,14 +36,8 @@ class ProductsAdmin extends Admin
             ->add('prodGallery',null, array('label' => 'Описание'))
             ->end()
             ->with('Картинки')
-//            ->add('images', 'sonata_type_collection',
-//                      array('label' => 'Картинки', 'by_reference' => false),
-//                      array(
-//                           'edit' => 'inline',
-//                           'inline' => 'table',
-//                      ))
-        ;
-
+            ->add('productHasMedias', 'sonata_type_model',array('expanded' => true))
+      ;
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)

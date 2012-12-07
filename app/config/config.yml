@@ -3,7 +3,7 @@ imports:
     - { resource: security.yml }
 framework:
     #esi:             ~
-    translator:      { fallback: %locale% }
+    translator:      { fallback: ru }
     secret:          %secret%
     charset:         UTF-8
     router:          { resource: "%kernel.root_dir%/config/routing.yml" }
@@ -61,7 +61,7 @@ jms_security_extra:
     secure_all_services: false
 
 sonata_admin:
-    title: Jobeet Admin
+    title: Шляпа
 
 sonata_block:
     default_contexts: [cms]
