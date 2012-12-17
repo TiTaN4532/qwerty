@@ -198,7 +198,7 @@ class Products
     {
  
         foreach ($images as $image) {
-            $images->setProductId($this);
+            $image->setProductId($this);
         }
 
         $this->Images = $images;

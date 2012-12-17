@@ -38,13 +38,7 @@ class ProductsAdmin extends Admin
             ->add('name',null, array('label' => 'Название'))
             ->add('description',null, array('label' => 'Описание'))
             ->add('category',null, array('label' => 'Категория'))
-            ->add('images','sonata_type_collection', array('by_reference' => false),array(
-                           'edit' => 'inline',
-                          //В сущности NewsLink есть поле pos, отражающее положение ссылки в списке
-                          //указание опции sortable позволяет менять положение ссылок в списке перетаскиваением
-                           'sortable' => 'pos',
-                           'inline' => 'table',
-                      ))
+            ->add('images','sonata_type_model',array('expanded'=>true))
             ->end()
             ->with('Картинки');
             
