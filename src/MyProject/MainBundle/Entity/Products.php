@@ -51,11 +51,31 @@ class Products
      * 
      */
     private $productHasMedias;
+    
+     /**
+     * @var $images
+     * 
+     *@ORM\OneToMany  (targetEntity="Images", mappedBy="product_id")
+     * 
+     */
+    private $images;
+    
+    /**
+     * @var $Category
+     *
+     * @ORM\ManyToOne(targetEntity="Category")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="category_id", referencedColumnName="id")
+     * })
+     * })
+     */
+    private $category;
 
     
     function __construct()
     {
        $this->productHasMedias = new \Doctrine\Common\Collections\ArrayCollection();
+       $this->images = new \Doctrine\Common\Collections\ArrayCollection();
     }
     /**
      * Get id
@@ -162,8 +182,58 @@ class Products
 
         return $this->productHasMedias;
     }
+ /**
+     * Add images
+     *
+     * Images $images
+     */
+    public function addImages(Images $images)
+    {
+            
+        $images->setProductId($this);
 
+        $this->images[] = $images;
+    }
+ public function setImages($images)
+    {
+ 
+        foreach ($images as $image) {
+            $images->setProductId($this);
+        }
 
+        $this->Images = $images;
+    }
+
+    /**
+     * Get images
+     *
+     * @return Doctrine\Common\Collections\Collection
+     */
+    public function getImages()
+    {
+
+        return $this->images;
+    }
+ 
+    /**
+     * Set Category
+     *
+     * @param Category $Category
+     */
+    public function setCategory(Category $Category)
+    {
+        $this->category = $Category;
+    }
+
+    /**
+     * Get Category
+     *
+     * @return Category
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
 
    
 }
