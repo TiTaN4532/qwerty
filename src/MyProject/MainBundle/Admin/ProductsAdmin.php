@@ -37,13 +37,17 @@ class ProductsAdmin extends Admin
             ->with('General')
             ->add('name',null, array('label' => 'Название'))
             ->add('description',null, array('label' => 'Описание'))
-            ->add('prodGallery',null, array('label' => 'Описание'))
+            ->add('category',null, array('label' => 'Категория'))
+            ->add('images','sonata_type_collection', array('by_reference' => false),array(
+                           'edit' => 'inline',
+                          //В сущности NewsLink есть поле pos, отражающее положение ссылки в списке
+                          //указание опции sortable позволяет менять положение ссылок в списке перетаскиваением
+                           'sortable' => 'pos',
+                           'inline' => 'table',
+                      ))
             ->end()
-            ->with('Картинки')
-            ->add('productHasMedias', 'sonata_type_model', array( 'query' => $query,'expanded' => true  ), array(
-                          
-            ))
-      ;
+            ->with('Картинки');
+            
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
