@@ -8,6 +8,7 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Validator\ErrorElement;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
+use Symfony\Component\HttpFoundation\Request;
 
 
 
@@ -29,8 +30,9 @@ class ProductsAdmin extends Admin
     }
     protected function configureFormFields(FormMapper $formMapper)
     {
-       
-      $query = $this->modelManager->getEntityManager('Application\Sonata\MediaBundle\Entity\Media')->createQuery('SELECT m FROM Application\Sonata\MediaBundle\Entity\Media m WHERE m.product_id IS NULL');
+        $request=$this->getRequest()->attributes->get('id');
+
+      $query = $this->modelManager->getEntityManager('Application\Sonata\MediaBundle\Entity\Media')->createQuery('SELECT m FROM Application\Sonata\MediaBundle\Entity\Media m WHERE m.product_id IS NULL OR m.product_id = :id')->setParameter('id',$request);
        $formMapper
             ->with('General')
             ->add('name',null, array('label' => 'Название'))
@@ -38,7 +40,9 @@ class ProductsAdmin extends Admin
             ->add('prodGallery',null, array('label' => 'Описание'))
             ->end()
             ->with('Картинки')
-            ->add('productHasMedias', 'sonata_type_model',array('query'=>$query),array('edit' => 'standart'))
+            ->add('productHasMedias', 'sonata_type_model', array( 'query' => $query,'expanded' => true  ), array(
+                          
+            ))
       ;
     }
 

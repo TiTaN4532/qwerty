@@ -40,14 +40,24 @@ class Media extends BaseMedia
     {
         return $this->id;
     }
-    
-    public function setProductId($product_id)
+     /**
+     * Set product_id
+     *
+     * @param \MyProject\MainBundle\Entity\Products $product_id
+     */ 
+    public function setProductId(\MyProject\MainBundle\Entity\Products $product_id)
     {
+       
         $this->product_id = $product_id;
     }
-
+    /**
+     * Get product_id
+     *
+     * @return \MyProject\MainBundle\Entity\Products
+     */
     public function getProductId()
     {
+
         return $this->product_id;
     }
     

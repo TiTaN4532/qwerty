@@ -55,7 +55,7 @@ class Products
     
     function __construct()
     {
-       $this->productHasMedia = new \Doctrine\Common\Collections\ArrayCollection();
+       $this->productHasMedias = new \Doctrine\Common\Collections\ArrayCollection();
     }
     /**
      * Get id
@@ -130,9 +130,21 @@ class Products
     {
         return $this->prodGallery;
     }
+     /**
+     * Add productHasMedias
+     *
+     * \Application\Sonata\MediaBundle\Entity\Media $productHasMedias
+     */
+    public function addProductHasMedias(\Application\Sonata\MediaBundle\Entity\Media $productHasMedias)
+    {
+            
+        $productHasMedias->setProductId($this);
 
+        $this->productHasMedias[] = $productHasMedias;
+    }
  public function setProductHasMedias($productHasMedias)
     {
+ 
         foreach ($productHasMedias as $productHasMedia) {
             $productHasMedia->setProductId($this);
         }
@@ -140,20 +152,18 @@ class Products
         $this->productHasMedias = $productHasMedias;
     }
 
-
+    /**
+     * Get productHasMedias
+     *
+     * @return Doctrine\Common\Collections\Collection
+     */
     public function getProductHasMedias()
     {
+
         return $this->productHasMedias;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function addProductHasMedias(\Application\Sonata\MediaBundle\Entity\y $productHasMedia)
-    {
-        $productHasMedia->setGallery($this);
 
-        $this->productHasMedia[] = $productHasMedia;
-    }
+
    
 }
