@@ -21,4 +21,5 @@ class ImagesAdmin extends Admin
                 ->add('name','file', array())
                                ;
     }
+
 }

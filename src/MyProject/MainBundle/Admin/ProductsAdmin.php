@@ -9,6 +9,7 @@ use Sonata\AdminBundle\Validator\ErrorElement;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
 use Symfony\Component\HttpFoundation\Request;
+use \MyProject\MainBundle\From\ImageType;
 
 
 
@@ -38,7 +39,7 @@ class ProductsAdmin extends Admin
             ->add('name',null, array('label' => 'Название'))
             ->add('description',null, array('label' => 'Описание'))
             ->add('category',null, array('label' => 'Категория'))
-            ->add('images','sonata_type_model',array('expanded'=>true))
+            ->add('images','sonata_type_collection')
             ->end()
             ->with('Картинки');
             
