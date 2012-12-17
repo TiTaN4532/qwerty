@@ -46,12 +46,9 @@ class Products
     private $prodGallery;
      /**
      * @var $productHasMedias
-     *
-     * @ORM\ManyToMany(targetEntity="\Application\Sonata\MediaBundle\Entity\Media")
-     * @ORM\JoinTable(name="ProductHasMedia",
-     *      joinColumns={@ORM\JoinColumn(name="product_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="media_id", referencedColumnName="id")}
-     * )
+     * 
+     *@ORM\OneToMany  (targetEntity="\Application\Sonata\MediaBundle\Entity\Media", mappedBy="product_id")
+     * 
      */
     private $productHasMedias;
 
@@ -137,7 +134,7 @@ class Products
  public function setProductHasMedias($productHasMedias)
     {
         foreach ($productHasMedias as $productHasMedia) {
-            $productHasMedia->setProductHasMedias($this);
+            $productHasMedia->setProductId($this);
         }
 
         $this->productHasMedias = $productHasMedias;
@@ -152,7 +149,7 @@ class Products
     /**
      * {@inheritdoc}
      */
-    public function addProductHasMedias(ProductHasMedia $productHasMedia)
+    public function addProductHasMedias(\Application\Sonata\MediaBundle\Entity\y $productHasMedia)
     {
         $productHasMedia->setGallery($this);
 

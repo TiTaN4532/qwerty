@@ -29,14 +29,16 @@ class ProductsAdmin extends Admin
     }
     protected function configureFormFields(FormMapper $formMapper)
     {
-        $formMapper
+       
+      $query = $this->modelManager->getEntityManager('Application\Sonata\MediaBundle\Entity\Media')->createQuery('SELECT m FROM Application\Sonata\MediaBundle\Entity\Media m WHERE m.product_id IS NULL');
+       $formMapper
             ->with('General')
             ->add('name',null, array('label' => 'Название'))
             ->add('description',null, array('label' => 'Описание'))
             ->add('prodGallery',null, array('label' => 'Описание'))
             ->end()
             ->with('Картинки')
-            ->add('productHasMedias', 'sonata_type_model',array('expanded' => true))
+            ->add('productHasMedias', 'sonata_type_model',array('query'=>$query),array('edit' => 'standart'))
       ;
     }
 

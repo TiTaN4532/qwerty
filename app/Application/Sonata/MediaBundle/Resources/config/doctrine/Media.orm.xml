@@ -13,9 +13,12 @@
         table="media__media"
         >
 
-        <id name="id" type="integer" column="id">
+       <id name="id" type="integer" column="id">
             <generator strategy="AUTO"/>
         </id>
+        <many-to-one field="product_id" target-entity="MyProject\MainBundle\Entity\Products" inversed-by="productHasMedias">
+            <join-column name="product_id" referenced-column-name="id" />
+        </many-to-one>
 
     </entity>
 </doctrine-mapping>
