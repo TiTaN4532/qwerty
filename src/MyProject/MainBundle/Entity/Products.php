@@ -3,12 +3,14 @@
 namespace MyProject\MainBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\HttpFoundation\Request;
 /**
  * MyProject\MainBundle\Entity\Products
  *
  * @ORM\Table()
  * @ORM\Entity
+ * @ORM\HasLifecycleCallbacks
  */
 class Products
 {
@@ -34,28 +36,11 @@ class Products
      * @ORM\Column(name="description", type="text")
      */
     private $description;
-     /**
-     * @var $prodGallery
-     *
-     * @ORM\ManyToOne(targetEntity="\Application\Sonata\MediaBundle\Entity\Gallery")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="gallery_id", referencedColumnName="id")
-     * })
-     * })
-     */
-    private $prodGallery;
-     /**
-     * @var $productHasMedias
-     * 
-     *@ORM\OneToMany  (targetEntity="\Application\Sonata\MediaBundle\Entity\Media", mappedBy="product_id")
-     * 
-     */
-    private $productHasMedias;
-    
+        
      /**
      * @var $images
      * 
-     *@ORM\OneToMany  (targetEntity="Images", mappedBy="product_id")
+     *@ORM\OneToMany  (targetEntity="Images", mappedBy="product_id", cascade={"all"})
      * 
      */
     private $images;
@@ -74,7 +59,6 @@ class Products
     
     function __construct()
     {
-       $this->productHasMedias = new \Doctrine\Common\Collections\ArrayCollection();
        $this->images = new \Doctrine\Common\Collections\ArrayCollection();
     }
     /**
@@ -132,56 +116,8 @@ class Products
     {
         return $this->getid() ? strval($this->getid()) : '123';
     }
-   /**
-     * Set prodGallery
-     *
-     * @param \Application\Sonata\MediaBundle\Entity\Gallery $prodGallery
-     */
-    public function setProdGallery(\Application\Sonata\MediaBundle\Entity\Gallery $prodGallery)
-    {
-        $this->prodGallery = $prodGallery;
-    }
-     /**
-     * Get prodGallery
-     *
-     * @return \Application\Sonata\MediaBundle\Entity\Gallery
-     */
-    public function getProdGallery()
-    {
-        return $this->prodGallery;
-    }
-     /**
-     * Add productHasMedias
-     *
-     * \Application\Sonata\MediaBundle\Entity\Media $productHasMedias
-     */
-    public function addProductHasMedias(\Application\Sonata\MediaBundle\Entity\Media $productHasMedias)
-    {
-            
-        $productHasMedias->setProductId($this);
-
-        $this->productHasMedias[] = $productHasMedias;
-    }
- public function setProductHasMedias($productHasMedias)
-    {
- 
-        foreach ($productHasMedias as $productHasMedia) {
-            $productHasMedia->setProductId($this);
-        }
-
-        $this->productHasMedias = $productHasMedias;
-    }
-
-    /**
-     * Get productHasMedias
-     *
-     * @return Doctrine\Common\Collections\Collection
-     */
-    public function getProductHasMedias()
-    {
-
-        return $this->productHasMedias;
-    }
+   
+   
  /**
      * Add images
      *
@@ -194,14 +130,18 @@ class Products
 
         $this->images[] = $images;
     }
+    /**
+     * Set images
+     *
+     * Images $images
+     */
  public function setImages($images)
-    {
- 
-        foreach ($images as $image) {
+    {   
+         foreach ($images as $image) {
             $image->setProductId($this);
         }
 
-        $this->Images = $images;
+        $this->images = $images;
     }
 
     /**
@@ -234,6 +174,20 @@ class Products
     {
         return $this->category;
     }
+  /**
+     * @ORM\PrePersist()
+     * @ORM\PreUpdate()
+     */
+    public function preUpload()
+    {
 
+//
+//          if (null !== $this->file) {
+//            // do whatever you want to generate a unique name
+//            $filename = time();
+//            $this->name = $filename.'.'.$this->file->guessExtension();
+//           
+//        }
+    }
    
 }

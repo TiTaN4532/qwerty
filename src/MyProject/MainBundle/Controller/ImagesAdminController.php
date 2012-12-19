@@ -29,8 +29,7 @@ class ImagesAdminController extends Controller
             
             // persist if the form was valid and if in preview mode the preview was approved
             if ($isFormValid && (!$this->isInPreviewMode() || $this->isPreviewApproved())) {
-                print_r($object);
-                exit();
+
                 $this->admin->create($object);
 
                 if ($this->isXmlHttpRequest()) {
@@ -41,8 +40,6 @@ class ImagesAdminController extends Controller
                 }
     
                 $this->get('session')->setFlash('sonata_flash_success','flash_create_success');
-                print_r($object);
-
                 // redirect to edit mode
                 return $this->redirectTo($object);
             }

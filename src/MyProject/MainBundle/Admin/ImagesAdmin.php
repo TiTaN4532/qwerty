@@ -17,9 +17,41 @@ class ImagesAdmin extends Admin
      */
     protected function configureFormFields(FormMapper $formMapper)
     {
+        $obj = $this->getSubject();
+
+        $formBuilder = $formMapper->getFormBuilder();
+
+//        if(is_object($obj))
+//        {   
+//            $formMapper
+//            ->add('name', null);
+//                'required' => false,
+//                'property_path' => false,
+//                'upload_dir' => '/uploads/picture/',
+//                'file_name' => $obj->getPicture()
+//            ));
+//        }
+       
+//        
+//        $formMapper->add('pictureFile', 'file', array('label' => 'Pic'));
         $formMapper
-                ->add('name','file', array())
+                ->add('file','file', array())
                                ;
+
+    }
+     public function prePersist($product) {
+//         print 123;
+//         exit();
+//    $this->saveFile($product);
+    }
+
+    public function preUpdate($product) {
+//      $this->saveFile($product);
+    }
+
+    public function saveFile($product) {
+//      $basepath = $this->getRequest()->getBasePath();
+//      $product->upload($basepath);    
     }
 
 }

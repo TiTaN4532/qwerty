@@ -6,4 +6,5 @@ use Sonata\AdminBundle\Controller\CRUDController as Controller;
 class ProductsAdminController extends Controller
 {
 
+            
 }

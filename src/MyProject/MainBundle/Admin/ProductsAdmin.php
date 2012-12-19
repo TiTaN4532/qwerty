@@ -21,6 +21,7 @@ class ProductsAdmin extends Admin
         '_sort_order' => 'DESC',
         '_sort_by' => 'created_at'
     );
+    
     protected function configureShowField(ShowMapper $showMapper)
     {
         $showMapper
@@ -33,13 +34,16 @@ class ProductsAdmin extends Admin
     {
         $request=$this->getRequest()->attributes->get('id');
 
-      $query = $this->modelManager->getEntityManager('Application\Sonata\MediaBundle\Entity\Media')->createQuery('SELECT m FROM Application\Sonata\MediaBundle\Entity\Media m WHERE m.product_id IS NULL OR m.product_id = :id')->setParameter('id',$request);
+      $query = $this->modelManager->getEntityManager('MyProject\MainBundle\Entity\Images')->createQuery('SELECT i FROM MyProject\MainBundle\Entity\Images i WHERE i.product_id IS NULL OR i.product_id = :id')->setParameter('id',$request);
        $formMapper
             ->with('General')
             ->add('name',null, array('label' => 'Название'))
             ->add('description',null, array('label' => 'Описание'))
             ->add('category',null, array('label' => 'Категория'))
-            ->add('images','sonata_type_collection')
+            ->add('images','sonata_type_collection',array('by_reference' => false), array(
+                'edit' => 'inline',
+                'inline' => 'table'
+                      ))
             ->end()
             ->with('Картинки');
             
@@ -65,26 +69,42 @@ class ProductsAdmin extends Admin
                 )));
         ;
     }
+    
+     public function prePersist($object) {
+         print_r($object);
+        // exit();
+//    $this->saveFile($product);
+    }
+
+    public function preUpdate($product) {
+//      $this->saveFile($product);
+    }
+
+    public function saveFile($product) {
+//      $basepath = $this->getRequest()->getBasePath();
+//      $product->upload($basepath);    
+    }
+    
     public function postCreate($news)
     {
-        //Создаем новый экземпляр редактируемой сущности
-        $emptyObj = $this->getNewInstance();
-
-        //Создаем форму, которая описана в методе сonfigureFormFields, привязываем к ней пустой объект
-        //наполняем пустой объект данными из запроса - это позволяет добиться того, что
-        //порядок привязанных NewsLink будет таким, как определено в html-форме
-        //(учитывая возможные перемещения строк таблицы с полями редактирования NewsLink)
-
-        //В отличии от порядка записей NewsLink редактируемого объекта - он такой, как возвращает Doctrine
-        $this->getForm()->setData($emptyObj)->bindRequest($this->getRequest());
-
-        $newLinkPos = array();
-        //Запоминаем положение NewsLink
-        foreach ($emptyObj->getNewsLinks() as $link) $newLinkPos[] = $link->getUrl();
-        $newLinkPos = array_flip($newLinkPos);
-
-        //Выставляем позиции для редактируемого объекта
-        foreach ($news->getNewsLinks() as $pos => $link)
-            $link->setPos($newLinkPos[$link->getUrl()]);
+//        //Создаем новый экземпляр редактируемой сущности
+//        $emptyObj = $this->getNewInstance();
+//        
+//        //Создаем форму, которая описана в методе сonfigureFormFields, привязываем к ней пустой объект
+//        //наполняем пустой объект данными из запроса - это позволяет добиться того, что
+//        //порядок привязанных NewsLink будет таким, как определено в html-форме
+//        //(учитывая возможные перемещения строк таблицы с полями редактирования NewsLink)
+//
+//        //В отличии от порядка записей NewsLink редактируемого объекта - он такой, как возвращает Doctrine
+//        $this->getForm()->setData($emptyObj)->bindRequest($this->getRequest());
+//
+//        $newLinkPos = array();
+//        //Запоминаем положение NewsLink
+//        foreach ($emptyObj->getNewsLinks() as $link) $newLinkPos[] = $link->getUrl();
+//        $newLinkPos = array_flip($newLinkPos);
+//
+//        //Выставляем позиции для редактируемого объекта
+//        foreach ($news->getNewsLinks() as $pos => $link)
+//            $link->setPos($newLinkPos[$link->getUrl()]);
     }
 }
