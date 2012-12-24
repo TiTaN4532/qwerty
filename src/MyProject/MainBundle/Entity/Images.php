@@ -103,7 +103,6 @@ class Images
      */
     public function setFile($file)
     {
-
         $this->file = $file;
     }
 
@@ -124,9 +123,9 @@ class Images
     }
      public function getAbsolutePath()
     {
-        return null === $this->path
+        return null === $this->name
             ? null
-            : $this->getUploadRootDir().'/'.$this->path;
+            : $this->getUploadRootDir().'/'.$this->name;
     }
      public function getWebPath()
     {
@@ -150,29 +149,20 @@ class Images
     }
      /**
      * @ORM\PrePersist()
-     * @ORM\PreUpdate()
+     * 
      */
-    public function preUpload()
+    public function prePersist()
     {
-        print_r($this->file);
-        exit();
-       if(is_object($this->file))
-       {
-              // print_r($this);
-            // exit();
+//        print_r($this->file);
+//        exit();
               if (null !== $this->file) {
                 // do whatever you want to generate a unique name
                 $filename = time().'_'.$this->file->getClientOriginalName();
                 $this->name = $filename.'.'.$this->file->guessExtension();
-           }
-        }
-         else { 
-             $this->name=123;
-         }
+              }
      }
     /**
      * @ORM\PostPersist()
-     * @ORM\PostUpdate()
      */
     public function upload()
     { 
@@ -189,6 +179,15 @@ class Images
         unset($this->file);
        }
         
+    }
+     /**
+     * @ORM\PostRemove()
+     */
+    public function removeUpload()
+    {
+        if ($file = $this->getAbsolutePath()) {
+            unlink($file);
+        }
     }
     
 }

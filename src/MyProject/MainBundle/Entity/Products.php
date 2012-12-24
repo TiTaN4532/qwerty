@@ -60,6 +60,7 @@ class Products
     function __construct()
     {
        $this->images = new \Doctrine\Common\Collections\ArrayCollection();
+     //  $this->medias = new \Doctrine\Common\Collections\ArrayCollection();
     }
     /**
      * Get id
@@ -137,6 +138,8 @@ class Products
      */
  public function setImages($images)
     {   
+//       print_r($images);
+//       exit();
          foreach ($images as $image) {
             $image->setProductId($this);
         }
@@ -154,6 +157,8 @@ class Products
 
         return $this->images;
     }
+    
+      
  
     /**
      * Set Category

@@ -2,10 +2,11 @@ MyProjectMainBundle_homepage:
     pattern:  /
     defaults: { _controller: MyProjectMainBundle:Default:index }
 
-MyProjectMainBundle_newsView:
-    pattern:  /news
-    defaults: { _controller: MyProjectMainBundle:News:View }
 
-MyProjectMainBundle_newsViewId:
-    pattern:  /news/{id}
+MyProjectMainBundle_admin_products_view:
+    pattern:  /admin/products
     defaults: { _controller: MyProjectMainBundle:News:ViewId }
+    
+MyProjectMainBundle_admin_category_view:
+    pattern:  /admin/category
+    defaults: { _controller: MyProjectMainBundle:CategoryAdmin_new:ViewId }

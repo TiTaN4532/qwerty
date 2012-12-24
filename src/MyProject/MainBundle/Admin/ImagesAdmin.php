@@ -11,6 +11,17 @@ use Sonata\AdminBundle\Form\FormMapper;
 
 class ImagesAdmin extends Admin
 {
+    protected function configureListFields(ListMapper $listMapper)
+    {
+        $listMapper
+            ->addIdentifier('name','string', array('template' => 'MyProjectMainBundle:Form:fields.html.twig'))
+                            ->add('_action', 'actions', array(
+                'actions' => array(
+                    'delete' => array(),
+                )));
+        ;
+    }
+    
     /**
      * @param \Sonata\AdminBundle\Form\FormMapper $formMapper
      * @return void
@@ -36,22 +47,10 @@ class ImagesAdmin extends Admin
 //        $formMapper->add('pictureFile', 'file', array('label' => 'Pic'));
         $formMapper
                 ->add('file','file', array())
+               // ->add('product_id',null,array('empty_value'=>'Не выбрано','choices' => Job::getTypes()))
                                ;
 
     }
-     public function prePersist($product) {
-//         print 123;
-//         exit();
-//    $this->saveFile($product);
-    }
 
-    public function preUpdate($product) {
-//      $this->saveFile($product);
-    }
-
-    public function saveFile($product) {
-//      $basepath = $this->getRequest()->getBasePath();
-//      $product->upload($basepath);    
-    }
 
 }
