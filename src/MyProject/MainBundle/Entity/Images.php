@@ -5,6 +5,7 @@ namespace MyProject\MainBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use MyProject\MainBundle\Additional\additionalFunctions as Functions;
+
 /**
  * MyProject\MainBundle\Entity\Images
  *
@@ -135,7 +136,7 @@ class Images
             : $this->getUploadDir().'/'.$this->name;
     }
 
-    protected function getUploadRootDir()
+    public function getUploadRootDir()
     {
         // the absolute directory path where uploaded
         // documents should be saved
@@ -148,16 +149,44 @@ class Images
         // when displaying uploaded doc/image in the view.
         return 'uploads/images';
     }
+    /**
+     * @ORM\PreUpdate()
+     */
+    public function preUpdate()
+    {
+
+        $functions=new Functions;
+
+            $k=1;
+            $ext=substr(strrchr($this->getName(), '.'), 1);
+           
+            $filename=$functions->str2url($this->getProductId()->getCategory()->getName()).'_'.$functions->str2url($this->getProductId()->getName());
+            
+            if(is_file($this->getUploadRootDir().'/'.$filename.'.'.$ext))
+            {
+                while(is_file($this->getUploadRootDir().'/'.$filename.'_'.$k.$ext))
+                {
+                    $k++;
+                }
+                $filename=$filename.'_'.$k.'.'.$ext;
+            }
+            else
+                $filename.='.'.$ext;
+                           
+                 rename($this->getAbsolutePath(),$this->getUploadRootDir().'/'.$filename);
+            $this->setName($filename);
+        }
+ 
      /**
      * @ORM\PrePersist()
      * 
      */
     public function prePersist()
     {
+
        if (null !== $this->file) {
           // do whatever you want to generate a unique name
-       $filename = time().'_'.$this->file->getClientOriginalName();
-       $this->name = $filename.'.'.$this->file->guessExtension();
+       $this->name = time().'.'.$this->file->guessExtension();
        }
      }
     /**
@@ -188,6 +217,7 @@ class Images
             unlink($file);
         }
     }
+    
     
   
     

@@ -84,15 +84,10 @@ class ProductsAdmin extends Admin
                 )));
         ;
     }
-    public function prePersist($object){
+    public function preUpdate($object){
         
-        foreach($object->getImages() as $key => $value)
-        {
-              print_r($value->getAbsolutePath());
-              exit();
-          // rename($value->);
-         //  $value->setName('123');
-        }
+        print_r($this->getRequest());
+        exit();
     }
     
 }

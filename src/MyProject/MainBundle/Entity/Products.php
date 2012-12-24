@@ -5,6 +5,7 @@ namespace MyProject\MainBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
+
 /**
  * MyProject\MainBundle\Entity\Products
  *
@@ -179,20 +180,8 @@ class Products
     {
         return $this->category;
     }
-  /**
-     * @ORM\PrePersist()
-     * @ORM\PreUpdate()
-     */
-    public function preUpload()
-    {
-
-//
-//          if (null !== $this->file) {
-//            // do whatever you want to generate a unique name
-//            $filename = time();
-//            $this->name = $filename.'.'.$this->file->guessExtension();
-//           
-//        }
-    }
+    
+    
+  
    
 }
