@@ -4,6 +4,7 @@ namespace MyProject\MainBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use MyProject\MainBundle\Additional\additionalFunctions as Functions;
 /**
  * MyProject\MainBundle\Entity\Images
  *
@@ -153,13 +154,11 @@ class Images
      */
     public function prePersist()
     {
-//        print_r($this->file);
-//        exit();
-              if (null !== $this->file) {
-                // do whatever you want to generate a unique name
-                $filename = time().'_'.$this->file->getClientOriginalName();
-                $this->name = $filename.'.'.$this->file->guessExtension();
-              }
+       if (null !== $this->file) {
+          // do whatever you want to generate a unique name
+       $filename = time().'_'.$this->file->getClientOriginalName();
+       $this->name = $filename.'.'.$this->file->guessExtension();
+       }
      }
     /**
      * @ORM\PostPersist()
@@ -189,5 +188,7 @@ class Images
             unlink($file);
         }
     }
+    
+  
     
 }

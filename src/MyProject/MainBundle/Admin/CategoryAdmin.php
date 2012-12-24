@@ -8,6 +8,7 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
 
+
 use Knp\Menu\ItemInterface as MenuItemInterface;
 
 class CategoryAdmin extends Admin
@@ -47,4 +48,5 @@ class CategoryAdmin extends Admin
         $datagridMapper
                 ->add('name', null, array('label' => 'Название'));
     }
+    
 }
