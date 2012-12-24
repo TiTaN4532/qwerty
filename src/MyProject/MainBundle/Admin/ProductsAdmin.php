@@ -50,7 +50,7 @@ class ProductsAdmin extends Admin
 //                           'inline' => 'table',
 //                      ))
                     ->with('Картинки')
-            ->add('images','sonata_type_model',array('by_reference' => false, 'expanded'=>true,'query'=>$query), array(
+            ->add('images','sonata_type_model',array('template' => 'MyProjectMainBundle:Form:form_admin_fields.html.twig','by_reference' => false, 'expanded'=>true,'query'=>$query), array(
                  ))
 //             ->add('medias','collection',array('type' => new ImageType(),'allow_add' => true,'allow_delete' => true,
 //        'by_reference' => false,))

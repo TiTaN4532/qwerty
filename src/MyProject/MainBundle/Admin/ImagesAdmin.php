@@ -14,10 +14,11 @@ class ImagesAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->addIdentifier('name','string', array('template' => 'MyProjectMainBundle:Form:fields.html.twig'))
+            ->add('name','string', array('template' => 'MyProjectMainBundle:Form:fields.html.twig'))
                             ->add('_action', 'actions', array(
                 'actions' => array(
                     'delete' => array(),
+                    'edit' => array(),
                 )));
         ;
     }
@@ -28,7 +29,6 @@ class ImagesAdmin extends Admin
      */
     protected function configureFormFields(FormMapper $formMapper)
     {
-        $obj = $this->getSubject();
 
         $formBuilder = $formMapper->getFormBuilder();
 
