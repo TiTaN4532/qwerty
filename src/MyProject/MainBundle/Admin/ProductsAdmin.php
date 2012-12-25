@@ -34,7 +34,7 @@ class ProductsAdmin extends Admin
     {
         $productId=$this->getSubject()->getId();
         $query = $this->modelManager->getEntityManager('MyProject\MainBundle\Entity\Images')->createQuery('SELECT i FROM MyProject\MainBundle\Entity\Images i WHERE i.product_id IS NULL OR i.product_id = :id')->setParameter('id',$productId);
-        $formMapper
+            $formMapper
             ->with('General')
             ->add('name',null, array('label' => 'Название'))
             ->add('description',null, array('label' => 'Описание'))
@@ -47,7 +47,7 @@ class ProductsAdmin extends Admin
 //                      array('label' => 'Ссылки', 'by_reference' => false),
 //                      array(
 //                           'edit' => 'inline',
-//                           'inline'` => 'table',
+//                           'inline' => 'table',
 //                      ))
                     ->with('Картинки')
             ->add('images','sonata_type_model',array('by_reference' => false, 'expanded'=>true,'query'=>$query), array(

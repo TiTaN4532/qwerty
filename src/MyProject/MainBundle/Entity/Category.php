@@ -97,9 +97,8 @@ class Category
      * @ORM\PrePersist()
      * @ORM\PreUpdate()
      */
-    public function preUpdate()
+    public function prePersist()
     {
-
         $functions = new Functions;
         $this->slug = $functions->str2url($this->name);
   
