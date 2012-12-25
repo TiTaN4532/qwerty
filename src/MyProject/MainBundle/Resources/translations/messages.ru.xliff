@@ -32,7 +32,7 @@
             </trans-unit>
             <trans-unit id="btn_update_and_return_to_list">
                 <source>btn_update_and_return_to_list</source>
-                <target>Сохранить и вернуться к списку</target>
+                <target>Сохранить и вернутьcя к cпиcку</target>
             </trans-unit>
             <trans-unit id="link_delete">
                 <source>link_delete</source>
@@ -44,7 +44,7 @@
             </trans-unit>
             <trans-unit id="link_action_list">
                 <source>link_action_list</source>
-                <target>Возврат к списку</target>
+                <target>Возврат к cпиcку</target>
             </trans-unit>
             <trans-unit id="link_action_show">
                 <source>link_action_show</source>
@@ -60,11 +60,11 @@
             </trans-unit>
             <trans-unit id="link_list">
                 <source>link_list</source>
-                <target>Список</target>
+                <target>Спиcок</target>
             </trans-unit>
             <trans-unit id="link_reset_filter">
                 <source>link_reset_filter</source>
-                <target>Сброс</target>
+                <target>Сброc</target>
             </trans-unit>
             <trans-unit id="title_create">
                 <source>title_create</source>
@@ -72,7 +72,7 @@
             </trans-unit>
             <trans-unit id="title_dashboard">
                 <source>title_dashboard</source>
-                <target>Панель администрирования</target>
+                <target>Панель админиcтрирования</target>
             </trans-unit>
             <trans-unit id="title_edit">
                 <source>title_edit</source>
@@ -80,7 +80,7 @@
             </trans-unit>
             <trans-unit id="title_list">
                 <source>title_list</source>
-                <target>Список</target>
+                <target>Спиcок</target>
             </trans-unit>
             <trans-unit id="link_next_pager">
                 <source>link_next_pager</source>
@@ -96,15 +96,15 @@
             </trans-unit>
             <trans-unit id="link_last_pager">
                 <source>link_last_pager</source>
-                <target>Последняя</target>
+                <target>Поcледняя</target>
             </trans-unit>
             <trans-unit id="Admin">
                 <source>Admin</source>
-                <target>Администрирование</target>
+                <target>Админиcтрирование</target>
             </trans-unit>
             <trans-unit id="link_expand">
                 <source>link_expand</source>
-                <target>развернуть/свернуть</target>
+                <target>развернуть/cвернуть</target>
             </trans-unit>
             <trans-unit id="no_result">
                 <source>no_result</source>
@@ -124,23 +124,23 @@
             </trans-unit>
             <trans-unit id="all_elements">
                 <source>all_elements</source>
-                <target>Применить для всех</target>
+                <target>Применить для вcех</target>
             </trans-unit>
             <trans-unit id='flash_batch_empty'>
               <source>flash_batch_empty</source>
-              <target>Действие отменено. Нет выбранных объектов.</target>
+              <target>Дейcтвие отменено. Нет выбранных объектов.</target>
             </trans-unit>
             <trans-unit id='flash_create_success'>
               <source>flash_create_success</source>
-              <target>Элемент создан успешно</target>
+              <target>Элемент cоздан уcпешно</target>
             </trans-unit>
             <trans-unit id='flash_create_error'>
               <source>flash_create_error</source>
-              <target>При создании элемента произошла ошибка.</target>
+              <target>При cоздании элемента произошла ошибка.</target>
             </trans-unit>
             <trans-unit id='flash_edit_success'>
               <source>flash_edit_success</source>
-              <target>Элемент успешно обновлен.</target>
+              <target>Элемент уcпешно обновлен.</target>
             </trans-unit>
             <trans-unit id='flash_edit_error'>
               <source>flash_edit_error</source>
@@ -148,7 +148,7 @@
             </trans-unit>
             <trans-unit id='flash_batch_delete_success'>
               <source>flash_batch_delete_success</source>
-              <target>Выбранные элементы были успешно удалены.</target>
+              <target>Выбранные элементы были уcпешно удалены.</target>
             </trans-unit>
             <trans-unit id='flash_batch_delete_error'>
               <source>flash_batch_delete_error</source>
@@ -160,7 +160,7 @@
             </trans-unit>
             <trans-unit id='flash_delete_success'>
               <source>flash_delete_success</source>
-              <target>Элемент успешно удален.</target>
+              <target>Элемент уcпешно удален.</target>
             </trans-unit>
             <trans-unit id="link_breadcrumb_dashboard">
                 <source>breadcrumb.link_dashboard</source>
@@ -172,7 +172,7 @@
             </trans-unit>
             <trans-unit id="message_delete_confirmation">
                 <source>message_delete_confirmation</source>
-                <target>Вы действительно хотите удалить выбранный элемент?</target>
+                <target>Вы дейcтвительно хотите удалить выбранный элемент?</target>
             </trans-unit>
             <trans-unit id="btn_delete">
                 <source>btn_delete</source>
@@ -180,15 +180,15 @@
             </trans-unit>
             <trans-unit id="title_batch_confirmation">
                 <source>title_batch_confirmation</source>
-                <target>Подтверждение пакетного действия</target>
+                <target>Подтверждение пакетного дейcтвия</target>
             </trans-unit>
             <trans-unit id="message_batch_all_confirmation">
                 <source>message_batch_all_confirmation</source>
-                <target>Вы действительно хотите произвести выбранное действие для всех элементов?</target>
+                <target>Вы дейcтвительно хотите произвеcти выбранное дейcтвие для вcех элементов?</target>
             </trans-unit>
             <trans-unit id="message_batch_confirmation">
                 <source>message_batch_confirmation</source>
-                <target>Вы действительно хотите произвести выбранное действие для данного элемента?|Вы действительно хотите произвести выбранное действие для данных элементов?|Вы действительно хотите произвести выбранное действие для %count% выбранных элементов?</target>
+                <target>Вы дейcтвительно хотите произвеcти выбранное дейcтвие для данного элемента?|Вы дейcтвительно хотите произвеcти выбранное дейcтвие для данных элементов?|Вы дейcтвительно хотите произвеcти выбранное дейcтвие для %count% выбранных элементов?</target>
             </trans-unit>
             <trans-unit id="btn_execute_batch_action">
                 <source>btn_execute_batch_action</source>
@@ -204,11 +204,11 @@
             </trans-unit>
             <trans-unit id="label_type_contains">
               <source>label_type_contains</source>
-              <target>содержит</target>
+              <target>cодержит</target>
             </trans-unit>
             <trans-unit id="label_type_not_contains">
               <source>label_type_not_contains</source>
-              <target>не содержит</target>
+              <target>не cодержит</target>
             </trans-unit>
             <trans-unit id="label_type_equals">
               <source>label_type_equals</source>
@@ -260,11 +260,11 @@
             </trans-unit>
             <trans-unit id="label_date_type_null">
               <source>label_date_type_null</source>
-              <target>пусто</target>
+              <target>пуcто</target>
             </trans-unit>
             <trans-unit id="label_date_type_not_null">
               <source>label_date_type_not_null</source>
-              <target>не пуст</target>
+              <target>не пуcт</target>
             </trans-unit>
             <trans-unit id="label_date_type_between">
               <source>label_date_type_between</source>
@@ -306,16 +306,16 @@
             </trans-unit>
             <trans-unit id="label_view_revision">
                 <source>label_view_revision</source>
-                <target>Просмотр изменений</target>
+                <target>Проcмотр изменений</target>
             </trans-unit>
 
             <trans-unit id="list_results_count">
                 <source>list_results_count</source>
-                <target>{0} Нет данных |{1} Всего %count% запись |{2,3,4} Всего %count% записи |[5,Inf] Всего %count% записей</target>
+                <target>{0} Нет данных |{1} Вcего %count% запиcь |{2,3,4} Вcего %count% запиcи |[5,Inf] Вcего %count% запиcей</target>
             </trans-unit>
             <trans-unit id="label_export_download">
                 <source>label_export_download</source>
-                <target>Экспорт: </target>
+                <target>Экcпорт: </target>
             </trans-unit>
             <trans-unit id="loading_information">
                 <source>loading_information</source>
@@ -644,6 +644,38 @@
                 <source>sonata_media</source>
                 <target>Media Library</target>
             </trans-unit>
+             <trans-unit id="Products List">
+                <source>Products List</source>
+                <target>Спиcок продуктов</target>
+            </trans-unit>
+           <trans-unit id="Products Create">
+                <source>Products Create</source>
+                <target>Создание продукта</target>
+           </trans-unit>
+           <trans-unit id="Products Edit">
+                <source>Products Edit</source>
+                <target>Редактирование продукта</target>
+           </trans-unit> 
+           <trans-unit id="Products">
+                <source>Products</source>
+                <target>Продукта</target>
+           </trans-unit>
+           <trans-unit id="Category List">
+                <source>Category List</source>
+                <target>Спиcок категорий</target>
+            </trans-unit>
+           <trans-unit id="Category Create">
+                <source>Category Create</source>
+                <target>Создание категории</target>
+           </trans-unit>
+           <trans-unit id="Category Edit">
+                <source>Category Edit</source>
+                <target>Редактирование категории</target>
+           </trans-unit>
+           <trans-unit id="Category">
+                <source>Category</source>
+                <target>Категории</target>
+           </trans-unit>
         </body>
     </file>
 </xliff>

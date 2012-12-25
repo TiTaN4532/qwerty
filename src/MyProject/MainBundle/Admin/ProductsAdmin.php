@@ -50,7 +50,7 @@ class ProductsAdmin extends Admin
 //                           'inline' => 'table',
 //                      ))
                     ->with('Картинки')
-            ->add('images','sonata_type_model',array('template' => 'MyProjectMainBundle:Form:form_admin_fields.html.twig','by_reference' => false, 'expanded'=>true,'query'=>$query), array(
+            ->add('images','sonata_type_model',array('by_reference' => false, 'expanded'=>true,'query'=>$query), array(
                  ))
 //             ->add('medias','collection',array('type' => new ImageType(),'allow_add' => true,'allow_delete' => true,
 //        'by_reference' => false,))
@@ -84,10 +84,22 @@ class ProductsAdmin extends Admin
                 )));
         ;
     }
-    public function preUpdate($object){
-        
-        print_r($this->getRequest());
-        exit();
-    }
+//    public function postUpdate($object){
+//
+//
+//       $k=$this->get('request')->request->get($form->getName(), array());
+//        $em = $this->getDoctrine()->getEntityManager();
+//        $images=$em->getRepository('MyProjectMainBundle:Images')->findBy(array('product_id' => $id));
+//         foreach($images as $key => $value)
+//         {
+//             if(!in_array($value->getId(),$k['images']))
+//             {
+//                  $value->setProductId('null');
+//             }
+//             $em->flush();
+//         }
+//        
+//       
+//    }
     
 }

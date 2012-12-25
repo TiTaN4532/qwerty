@@ -5,6 +5,7 @@ class additionalFunctions {
     
     public function rus2translit($string) {
     $converter = array(
+        ' '=> '_',
         'а' => 'a',   'б' => 'b',   'в' => 'v',
         'г' => 'g',   'д' => 'd',   'е' => 'e',
         'ё' => 'e',   'ж' => 'zh',  'з' => 'z',

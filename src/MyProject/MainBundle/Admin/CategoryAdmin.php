@@ -33,7 +33,11 @@ class CategoryAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-                ->addIdentifier('name', null, array('label' => 'Название'));
+                ->addIdentifier('name', null, array('label' => 'Название')) 
+                ->add('_action', 'actions', array(
+                'actions' => array(
+                    'delete' => array('name'),
+                )));
 
     }
 

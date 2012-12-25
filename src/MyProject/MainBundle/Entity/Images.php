@@ -54,7 +54,6 @@ class Images
      */
     public function setProductId(Products $product)
     {
-
         $this->product_id = $product;
         return $this;
     }
@@ -157,14 +156,15 @@ class Images
 
         $functions=new Functions;
 
-            $k=1;
+            $k=0;
             $ext=substr(strrchr($this->getName(), '.'), 1);
            
             $filename=$functions->str2url($this->getProductId()->getCategory()->getName()).'_'.$functions->str2url($this->getProductId()->getName());
-            
+            print $this->getUploadRootDir().'/'.$filename.'.'.$ext;
             if(is_file($this->getUploadRootDir().'/'.$filename.'.'.$ext))
             {
-                while(is_file($this->getUploadRootDir().'/'.$filename.'_'.$k.$ext))
+                $k++;
+                while(is_file($this->getUploadRootDir().'/'.$filename.'_'.$k.'.'.$ext))
                 {
                     $k++;
                 }
@@ -172,7 +172,7 @@ class Images
             }
             else
                 $filename.='.'.$ext;
-                           
+
                  rename($this->getAbsolutePath(),$this->getUploadRootDir().'/'.$filename);
             $this->setName($filename);
         }

@@ -18,7 +18,7 @@ class ImagesAdmin extends Admin
                             ->add('_action', 'actions', array(
                 'actions' => array(
                     'delete' => array(),
-                    'edit' => array(),
+                    
                 )));
         ;
     }
@@ -29,26 +29,8 @@ class ImagesAdmin extends Admin
      */
     protected function configureFormFields(FormMapper $formMapper)
     {
-
-        $formBuilder = $formMapper->getFormBuilder();
-
-//        if(is_object($obj))
-//        {   
-//            $formMapper
-//            ->add('name', null);
-//                'required' => false,
-//                'property_path' => false,
-//                'upload_dir' => '/uploads/picture/',
-//                'file_name' => $obj->getPicture()
-//            ));
-//        }
-       
-//        
-//        $formMapper->add('pictureFile', 'file', array('label' => 'Pic'));
-        $formMapper
-                ->add('file','file', array())
-               // ->add('product_id',null,array('empty_value'=>'Не выбрано','choices' => Job::getTypes()))
-                               ;
+            $formMapper
+                ->add('file','file', array());
 
     }
 
