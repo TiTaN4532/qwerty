@@ -1,0 +1,10 @@
+/web/bundles/
+/app/bootstrap*
+/app/cache/*
+/app/logs/*
+/logs/
+/vendor/
+/app/config/parameters.ini
+/.idea/
+/nbproject/
+/web/uploads/
