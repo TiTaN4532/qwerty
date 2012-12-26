@@ -37,6 +37,19 @@ class Products
      * @ORM\Column(name="description", type="text")
      */
     private $description;
+    /**
+     * @var integer $createdAt
+     *
+     * @ORM\Column(name="created_at", type="integer", nullable=true)
+     */
+    private $createdAt;
+
+    /**
+     * @var integer $updatedAt
+     *
+     * @ORM\Column(name="updated_at", type="integer", nullable=true)
+     */
+    private $updatedAt;
         
      /**
      * @var $images
@@ -60,6 +73,7 @@ class Products
     
     function __construct()
     {
+
        $this->images = new \Doctrine\Common\Collections\ArrayCollection();
      //  $this->medias = new \Doctrine\Common\Collections\ArrayCollection();
     }
@@ -180,7 +194,48 @@ class Products
     {
         return $this->category;
     }
-    
+
+     /**
+     * Set createdAt
+     *
+     * @ORM\PrePersist()
+     */
+    public function setCreatedAt()
+    {
+        $this->createdAt = time();
+    }
+
+    /**
+     * Get createdAt
+     *
+     * @return integer
+     */
+    public function getCreatedAt()
+    {
+
+        return date("H:i:s Y-m-d",$this->createdAt);
+    }
+
+    /**
+     * Set updatedAt
+     *
+     * @ORM\PreUpdate()
+     */
+    public function setUpdatedAt()
+    {
+        $this->updatedAt = time();
+    }
+
+    /**
+     * Get updatedAt
+     *
+     * @return integer
+     */
+    public function getUpdatedAt()
+    {
+        return date("H:i:s Y-m-d",$this->updatedAt);
+    }
+            
     
   
    

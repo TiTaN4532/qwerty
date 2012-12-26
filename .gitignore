@@ -4,6 +4,7 @@
 /app/logs/*
 /logs/
 /vendor/
+/logs/
 /app/config/parameters.ini
 /.idea/
 /nbproject/
