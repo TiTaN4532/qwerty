@@ -3,6 +3,7 @@
 /app/cache/*
 /app/logs/*
 /vendor/
+/logs/
 /app/config/parameters.ini
 /.idea/
 /nbproject/

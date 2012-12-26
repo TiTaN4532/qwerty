@@ -656,9 +656,13 @@
                 <source>Products Edit</source>
                 <target>Редактирование продукта</target>
            </trans-unit> 
+           <trans-unit id="Products Show">
+                <source>Products Show</source>
+                <target>Просмотр продукта</target>
+           </trans-unit> 
            <trans-unit id="Products">
                 <source>Products</source>
-                <target>Продукта</target>
+                <target>Продукты</target>
            </trans-unit>
            <trans-unit id="Category List">
                 <source>Category List</source>
@@ -672,10 +676,30 @@
                 <source>Category Edit</source>
                 <target>Редактирование категории</target>
            </trans-unit>
+            <trans-unit id="Category Show">
+                <source>Category Show</source>
+                <target>Просмотр категории</target>
+           </trans-unit>
            <trans-unit id="Category">
                 <source>Category</source>
                 <target>Категории</target>
            </trans-unit>
-        </body>
+           <trans-unit id="Images">
+                <source>Images</source>
+                <target>Картинки</target>
+           </trans-unit>
+           <trans-unit id="Images List">
+                <source>Images List</source>
+                <target>Спиcок картинок</target>
+            </trans-unit>
+           <trans-unit id="Images Create">
+                <source>Images Create</source>
+                <target>Загрузка картинки</target>
+           </trans-unit>
+           <trans-unit id="Images Edit">
+                <source>Images Edit</source>
+                <target>Редактирование картинки</target>
+           </trans-unit>
+       </body>
     </file>
 </xliff>

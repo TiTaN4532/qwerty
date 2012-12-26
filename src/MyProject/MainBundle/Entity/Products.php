@@ -37,6 +37,19 @@ class Products
      * @ORM\Column(name="description", type="text")
      */
     private $description;
+    /**
+     * @var datetime $createdAt
+     *
+     * @ORM\Column(name="created_at", type="datetime", nullable=true)
+     */
+    private $createdAt;
+
+    /**
+     * @var datetime $updatedAt
+     *
+     * @ORM\Column(name="updated_at", type="datetime", nullable=true)
+     */
+    private $updatedAt;
         
      /**
      * @var $images
@@ -180,7 +193,49 @@ class Products
     {
         return $this->category;
     }
-    
+
+     /**
+     * Set createdAt
+     *
+     * @ORM\PrePersist()
+     */
+    public function setCreatedAt($createdAt)
+    {
+        print 123;
+        exit();
+        $this->createdAt = $createdAt;
+    }
+
+    /**
+     * Get createdAt
+     *
+     * @return datetime
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * Set updatedAt
+     *
+     * @ORM\PreUpdate()
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updatedAt = $updatedAt;
+    }
+
+    /**
+     * Get updatedAt
+     *
+     * @return datetime
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
+    }
+            
     
   
    
