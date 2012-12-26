@@ -16,6 +16,7 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 	outline: 0;
 	font-size: 100%;
 	vertical-align: baseline;
+        list-style: none;
 /*	background: transparent; */
 }
 /*
@@ -108,10 +109,10 @@ font-weight: normal;
 /*  text-align: left;
   float: left;
   display: inline;*/
-  height: 110px;
-	width: 250px;
-	margin: 0 20px 0 0;
-	padding: 0px;
+  height: 80px;
+    width: 250px;
+    margin: 0 20px 0 0;
+    padding: 0px;
 }
 #headerright {
   float: right;

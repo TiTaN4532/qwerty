@@ -1,0 +1,25 @@
+
+{% block sidebar %}
+    <div style="width:190px;" id="sidebar">     
+        <div class="moduletable">
+            <h3>Категории</h3>
+
+            <ul class="menu">
+
+                {% for category in categories %}
+
+                    <li class="item-104">
+
+                        <a href="{{ path('MyProjectMainBundle_homepage', { 'slug': category.slug }) }}">
+                            {{ category.name }}
+                        </a>
+
+                    </li>
+
+                {% endfor %}
+
+            </ul>
+
+        </div>
+    </div>
+{% endblock %}

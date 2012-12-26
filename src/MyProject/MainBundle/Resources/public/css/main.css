@@ -12,7 +12,7 @@ a:link img {text-decoration: none; border:0px; outline:none;}
 .page {background-repeat:repeat-x; position:relative;}
 #logo a{
     
-    font-family: 'Century Gothic',Arial,Verdana,Helvetica,sans-serif;
+    font-family: comic sans ms;
     font-size: 45px;
     font-weight: bold;
     margin: 25px 20px 0 0;
@@ -55,7 +55,7 @@ a:link img {text-decoration: none; border:0px; outline:none;}
 
 #col1 { float: left; width: 25%; padding-top:2px; }
 #col2 { display:none}
-#col3 { width: auto; margin: 0 0 0 32% !important; }
+#col3 { width: auto; margin: 0 0 0 26% !important; }
 #col1_content   { padding: 0 10px 0 0; }
 #col3_content   { padding: 0 0 0 0px !important; }
 

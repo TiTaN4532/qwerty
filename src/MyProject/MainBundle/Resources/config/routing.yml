@@ -1,8 +1,11 @@
+MyProjectMainBundle_contacts:
+    pattern:  /contacts
+    defaults: { _controller: MyProjectMainBundle:Default:contacts }
+
 MyProjectMainBundle_homepage:
-    pattern:  /
-    defaults: { _controller: MyProjectMainBundle:Default:index }
-
-
+    pattern:  /{slug}
+    defaults: { _controller: MyProjectMainBundle:Default:index, slug: null }
+    
 MyProjectMainBundle_admin_products_view:
     pattern:  /admin/products
     defaults: { _controller: MyProjectMainBundle:News:ViewId }

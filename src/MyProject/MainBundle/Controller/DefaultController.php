@@ -8,10 +8,23 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class DefaultController extends Controller
 {
     
-    public function indexAction()
-    {
+    public function indexAction($slug = null)
+    {   
         $title='MainPage';
         $body='MainPage';
-        return $this->render('MyProjectMainBundle:Default:index.html.twig',array('title' => $title,'body' => $body));
+        
+        $products = null;
+        
+        if($slug){
+            $category = $this->getDoctrine()->getRepository('MyProjectMainBundle:Category')->findOneBySlug($slug);
+            $products = $this->getDoctrine()->getRepository('MyProjectMainBundle:Products')->findByCategory($category->getId());
+        }
+        
+        return $this->render('MyProjectMainBundle::main.html.twig',array('title' => $title,'body' => $body, 'products' => $products));
+    }
+    
+    public function contactsAction()
+    {     
+        return $this->render('MyProjectMainBundle:Default:contacts.html.twig');
     }
 }
