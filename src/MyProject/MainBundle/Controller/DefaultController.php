@@ -9,7 +9,7 @@ class DefaultController extends Controller
 {
     
     public function indexAction($slug = null)
-    {   
+    {           
         $title='MainPage';
         $body='MainPage';
         
@@ -20,7 +20,7 @@ class DefaultController extends Controller
             $products = $this->getDoctrine()->getRepository('MyProjectMainBundle:Products')->findByCategory($category->getId());
         }
         
-        return $this->render('MyProjectMainBundle::main.html.twig',array('title' => $title,'body' => $body, 'products' => $products));
+        return $this->render('MyProjectMainBundle::main.html.twig',array('title' => $title,'body' => $body, 'products' => $products, 'slug' => $slug));
     }
     
     public function contactsAction()

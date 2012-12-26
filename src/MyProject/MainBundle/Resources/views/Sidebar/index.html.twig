@@ -1,5 +1,6 @@
 
 {% block sidebar %}
+
     <div style="width:190px;" id="sidebar">     
         <div class="moduletable">
             <h3>Категории</h3>
@@ -10,7 +11,7 @@
 
                     <li class="item-104">
 
-                        <a href="{{ path('MyProjectMainBundle_homepage', { 'slug': category.slug }) }}">
+                        <a {% if slug == category.slug %}href="javascript://;" class="active-link"{% else %} href="{{ path('MyProjectMainBundle_homepage', { 'slug': category.slug }) }}" {% endif %}>
                             {{ category.name }}
                         </a>
 
@@ -22,4 +23,5 @@
 
         </div>
     </div>
+
 {% endblock %}

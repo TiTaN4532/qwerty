@@ -9,13 +9,13 @@
         <link href="{{ asset("bundles/myprojectmain/css/template.css") }}" rel="stylesheet" type="text/css" />
         <link href="{{ asset("bundles/myprojectmain/css/fancybox/fancybox.min.css") }}" rel="stylesheet" type="text/css" />
 {% endblock %}
-        
+
 {% javascripts '@MyProjectMainBundle/Resources/public/js/jquery-1.6.2.min.js' %}
-    <script src="{{ asset_url }}"></script>
+        <script src="{{ asset_url }}"></script>
 {% endjavascripts %}
-    
+
 {% javascripts '@MyProjectMainBundle/Resources/public/js/fancybox/*' %}
-    <script src="{{ asset_url }}"></script>
+        <script src="{{ asset_url }}"></script>
 {% endjavascripts %}
 
     </head>
@@ -58,7 +58,7 @@
                         <div id="col1_content">
 
                          {% block sidebar %}
-                            {% render "MyProjectMainBundle:Sidebar:index" %}
+                            {% render "MyProjectMainBundle:Sidebar:index" with { slug: slug } %}
                          {% endblock %}
 
                         </div>
@@ -66,200 +66,205 @@
                     <div id="col3">
 
                         <div id="col3_content">
-                            
-                            {% block body %}
-                                <ul class="productList">
-                                    
-                                    {% for key, product in products %}
-                                        <li>
 
-                                            <div class="polaroid polaroid_{{ key }}">
+                            {% block body %}
+                            <ul class="productList">
+
+                                    {% for key, product in products %}
+                                <li>
+
+                                    <div class="polaroid polaroid_{{ key }}">
 
                                                 {% for key, image in product.images %}
-                                                
-                                                <a href="/uploads/images/{{ image.name }}" style="{% if key != 0  %} display:none; {% endif %}">
-                                                    <img src="/uploads/images/{{ image.name }}" alt="{{ product.name }}" />
-                                                </a>
+
+                                        <a href="/uploads/images/{{ image.name }}" style="{% if key != 0  %} display:none; {% endif %}">
+                                            <img src="/uploads/images/{{ image.name }}" alt="{{ product.name }}" />
+                                        </a>
 
                                                 {% endfor %}
 
-                                            </div>
+                                    </div>
 
-                                            <div class="polaroid-caption polaroid-caption_{{ key }}">
-                                                  <a class="prev prev_{{ key }}" href="#"></a>
-                                                  <a class="next next_{{ key }}" href="#"></a>
-                                                  <p class="caption caption_{{ key }}">{{ product.name }}</p>
-                                            </div>
+                                    <div class="polaroid-caption polaroid-caption_{{ key }}">
+                                        <a class="prev prev_{{ key }}" href="#"></a>
+                                        <a class="next next_{{ key }}" href="#"></a>
+                                        <p class="caption caption_{{ key }}">{{ product.name }}</p>
+                                    </div>
 
-                                        </li>
+                                </li>
                                     {% else %}
-                                        <li>
-                                            Kenny looks okay --- so far
-                                        </li>
+                                <li>
+                                    Kenny looks okay --- so far
+                                </li>
                                     {% endfor %}
-                                    
-                                </ul>
+
+                            </ul>
                             {% endblock %}
-                                    
-                            </div>
-                            <!-- IE Column Clearing -->
-                            <div id="ie_clearing"> &#160;</div>
+
                         </div>
+                        <!-- IE Column Clearing -->
+                        <div id="ie_clearing"> &#160;</div>
                     </div>
                 </div>
             </div>
-        
-            <div id="footer">
-                <div id="footer_line">
-                    <span class="footer_text">sssssssssss</span>
-                </div>
+        </div>
+
+        <div id="footer">
+            <div id="footer_line">
+                <span class="footer_text">sssssssssss</span>
             </div>
+        </div>
 
-<style>
-#footer { 
-    padding: 0;
-    display: table;
-    text-align: center;
-    height: 30px;
-    margin-left: auto;
-    margin-right: auto;
-    position: relative;
-    width: 1000px;
-    z-index: 1; 
-}
-.footer_text { 
-    color: #555555;
-    font-family: Arial,verdana,helvetica,sans-serif;
-    font-size: 12px;
-    margin-left: 10px;
-    line-height: 30px;
-}
-#footer_line {
-  margin: 0 30px;
-  border-top: 1px solid #D6B131;
-}
-                
-ul.productList  { display: inline-block; padding: 0; margin: 0; }
-ul.productList li { display: block; width: 230px; float: left; }
-                
-.polaroid{
-	background: #FFF; 
-	margin: 0 0 0 0; 
-	padding: 10px 10px 0 10px; 
-	width: 200px;
-}
+        <style>
+                #footer { 
+                    padding: 0;
+                    display: table;
+                    text-align: center;
+                    height: 30px;
+                    margin-left: auto;
+                    margin-right: auto;
+                    position: relative;
+                    width: 1000px;
+                    z-index: 1; 
+                }
+                .footer_text { 
+                    color: #555555;
+                    font-family: Arial,verdana,helvetica,sans-serif;
+                    font-size: 12px;
+                    margin-left: 10px;
+                    line-height: 30px;
+                }
+                #footer_line {
+                    margin: 0 30px;
+                    border-top: 1px solid #D6B131;
+                }
 
-.polaroid div a { cursor: pointer; }
+                ul.productList  { display: inline-block; padding: 0; margin: 0; }
+                ul.productList li { display: block; width: 230px; float: left; }
 
-.polaroid img{
-	width: 200px; 
-	height: 180px;
-}
-.polaroid-caption{
-	color: #000; 
-	background: #FFF; 
-	height: 20px; 
-	margin: 0 0 10px 0; 
-	padding: 10px 10px; 
-	width: 200px;
-}
+                .polaroid{
+                    background: #FFF; 
+                    margin: 0 0 0 0; 
+                    padding: 10px 10px 0 10px; 
+                    width: 200px;
+                }
 
-/* Caption and controls */
-.polaroid-caption a{
-	color: #000;
-}
-.polaroid-caption p.caption{
-	font-weight: bold; 
-	text-align: center;
-}
-.prev, .next{
-	display: block; 
-	height: 22px;
-        width: 19px;
-}
-.prev{
-	background: url("../../../bundles/myprojectmain/images/ui/vector-arrow-icons.jpg") no-repeat; 
-	float: left;
-        background-position: -196px -189px
-}
-.next{
-	background: url("../../../bundles/myprojectmain/images/ui/vector-arrow-icons.jpg") no-repeat; 
-	float: right;
-        background-position: -78px -189px;
-}
+                .polaroid div a { cursor: pointer; }
 
-/* css3 */
-.polaroid{
-	border-top-left-radius: 10px;
-	border-top-right-radius: 10px;
-	-moz-border-radius-topleft: 10px; 
-	-moz-border-radius-topright: 10px;
-	-webkit-border-top-left-radius: 10px;
-	-webkit-border-top-right-radius: 10px;
-}
-.polaroid-caption{
-	border-bottom-left-radius: 10px;
-	border-bottom-right-radius: 10px;
-	-moz-border-radius-bottomleft: 10px; 
-	-moz-border-radius-bottomright: 10px;
-	-webkit-border-bottom-left-radius: 10px;
-	-webkit-border-bottom-right-radius: 10px
-}
+                .polaroid img{
+                    width: 200px; 
+                    height: 180px;
+                }
+                .polaroid-caption{
+                    color: #000; 
+                    background: #FFF; 
+                    height: 20px; 
+                    margin: 0 0 10px 0; 
+                    padding: 10px 10px; 
+                    width: 200px;
+                }
+
+                /* Caption and controls */
+                .polaroid-caption a{
+                    color: #000;
+                }
+                .polaroid-caption p.caption{
+                    font-weight: bold; 
+                    text-align: center;
+                }
+                .prev, .next{
+                    display: block; 
+                    height: 22px;
+                    width: 19px;
+                }
+                .prev{
+                    background: url("../../../bundles/myprojectmain/images/ui/vector-arrow-icons.jpg") no-repeat; 
+                    float: left;
+                    background-position: -196px -189px
+                }
+                .next{
+                    background: url("../../../bundles/myprojectmain/images/ui/vector-arrow-icons.jpg") no-repeat; 
+                    float: right;
+                    background-position: -78px -189px;
+                }
+
+                /* css3 */
+                .polaroid{
+                    border-top-left-radius: 10px;
+                    border-top-right-radius: 10px;
+                    -moz-border-radius-topleft: 10px; 
+                    -moz-border-radius-topright: 10px;
+                    -webkit-border-top-left-radius: 10px;
+                    -webkit-border-top-right-radius: 10px;
+                }
+                .polaroid-caption{
+                    border-bottom-left-radius: 10px;
+                    border-bottom-right-radius: 10px;
+                    -moz-border-radius-bottomleft: 10px; 
+                    -moz-border-radius-bottomright: 10px;
+                    -webkit-border-bottom-left-radius: 10px;
+                    -webkit-border-bottom-right-radius: 10px
+                }
             </style>
-            
-            
-<script>
 
-    $('.productList li').each(function(e){
 
-//	$('.polaroid_'+e).after('<div class="polaroid-caption_'+e+'"><a class="prev prev_'+e+'" href="#"></a><a class="next next_'+e+'" href="#></a><p class="caption caption_'+e+'"></p></div>');
+            <script>
+
+            $('.productList li').each(function(e){
+  
+                    if(!$("div.polaroid_"+e+" a").next().length){
+                        $(".next_"+e).hide();
+                    }
+
+                    if(!$("div.polaroid_"+e+" a").prev().length){
+                        $(".prev_"+e).hide();
+                    }
+                        
+                    $("div.polaroid_"+e+" a").fancybox({
+                        'titleShow' : false,
+                        'transitionIn' : 'elastic',
+                        'transitionOut' : 'elastic'
+                    }); 
         
-        $("div.polaroid_"+e+" a").fancybox({
-            'titleShow' : false,
-            'transitionIn' : 'elastic',
-            'transitionOut' : 'elastic'
-        }); 
-        
-	$('.caption_'+e).text($(".polaroid_"+e+" a:visible img").attr("alt"))
+                    $('.caption_'+e).text($(".polaroid_"+e+" a:visible img").attr("alt"))
 
-	// Next controls
-	$(".next_"+e).click(function(){
-		if($(".polaroid_"+e+" a:last").is(":visible")){
-			$(".polaroid_"+e+" a:visible").fadeOut(function(){
-				$(".polaroid_"+e+" a:first").fadeIn();	
-				$('.caption_'+e).text($(".polaroid_"+e+" a:visible img").attr("alt"));
-			});
-		}
-		else{
-			$(".polaroid_"+e+" a:visible").fadeOut(function(){
-				$(this).next().fadeIn();
-				$('.caption_'+e).text($(".polaroid_"+e+" a:visible img").attr("alt"));
-			});
-		}
-		return false;
-	});
+                    // Next controls
+                    $(".next_"+e).click(function(){
+                            if($(".polaroid_"+e+" a:last").is(":visible")){
+                                    $(".polaroid_"+e+" a:visible").fadeOut(function(){
+                                            $(".polaroid_"+e+" a:first").fadeIn();	
+                                            $('.caption_'+e).text($(".polaroid_"+e+" a:visible img").attr("alt"));
+                                    });
+                            }
+                            else{
+                                    $(".polaroid_"+e+" a:visible").fadeOut(function(){
+                                            $(this).next().fadeIn();
+                                            $('.caption_'+e).text($(".polaroid_"+e+" a:visible img").attr("alt"));
+                                    });
+                            }
+                            return false;
+                    });
 
-	// Previous controls
-	$(".prev_"+e).click(function(){
-		if($(".polaroid_"+e+" img:first").is(":visible")){
-			$(".polaroid_"+e+" img:visible").fadeOut(function(){
-				$(".polaroid_"+e+" img:last").fadeIn();
-				$('.caption_'+e).text($(".polaroid_"+e+" img:visible").attr("alt"));
-			});
-		}
-		else{
-			$(".polaroid_"+e+" a:visible").fadeOut(function(){
-				$(this).prev().fadeIn();
-				$("p.caption_"+e).text($(".polaroid_"+e+" a:visible img").attr("alt"));
-			});
-		}
-		return false;
-	});
-        
+                    // Previous controls
+                    $(".prev_"+e).click(function(){
+                            if($(".polaroid_"+e+" a:first").is(":visible")){
+                                    $(".polaroid_"+e+" a:visible").fadeOut(function(){
+                                            $(".polaroid_"+e+" a:last").fadeIn();
+                                            $('.caption_'+e).text($(".polaroid_"+e+" a:visible").attr("alt"));
+                                    });
+                            }
+                            else{
+                                    $(".polaroid_"+e+" a:visible").fadeOut(function(){
+                                            $(this).prev().fadeIn();
+                                            $("p.caption_"+e).text($(".polaroid_"+e+" a:visible img").attr("alt"));
+                                    });
+                            }
+                            return false;
+                    });
                 
-    });
+                });
 
-            </script>
+                </script>
 
-        </body>
-    </html>
+            </body>
+        </html>
