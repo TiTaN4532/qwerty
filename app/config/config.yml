@@ -61,7 +61,7 @@ jms_security_extra:
     secure_all_services: false
 
 sonata_admin:
-    title: Шляпа
+    title: Админка
 
 sonata_block:
     default_contexts: [cms]

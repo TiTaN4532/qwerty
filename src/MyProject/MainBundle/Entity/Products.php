@@ -38,16 +38,16 @@ class Products
      */
     private $description;
     /**
-     * @var datetime $createdAt
+     * @var integer $createdAt
      *
-     * @ORM\Column(name="created_at", type="datetime", nullable=true)
+     * @ORM\Column(name="created_at", type="integer", nullable=true)
      */
     private $createdAt;
 
     /**
-     * @var datetime $updatedAt
+     * @var integer $updatedAt
      *
-     * @ORM\Column(name="updated_at", type="datetime", nullable=true)
+     * @ORM\Column(name="updated_at", type="integer", nullable=true)
      */
     private $updatedAt;
         
@@ -73,6 +73,7 @@ class Products
     
     function __construct()
     {
+
        $this->images = new \Doctrine\Common\Collections\ArrayCollection();
      //  $this->medias = new \Doctrine\Common\Collections\ArrayCollection();
     }
@@ -199,21 +200,20 @@ class Products
      *
      * @ORM\PrePersist()
      */
-    public function setCreatedAt($createdAt)
+    public function setCreatedAt()
     {
-        print 123;
-        exit();
-        $this->createdAt = $createdAt;
+        $this->createdAt = time();
     }
 
     /**
      * Get createdAt
      *
-     * @return datetime
+     * @return integer
      */
     public function getCreatedAt()
     {
-        return $this->createdAt;
+
+        return date("H:i:s Y-m-d",$this->createdAt);
     }
 
     /**
@@ -221,19 +221,19 @@ class Products
      *
      * @ORM\PreUpdate()
      */
-    public function setUpdatedAt($updatedAt)
+    public function setUpdatedAt()
     {
-        $this->updatedAt = $updatedAt;
+        $this->updatedAt = time();
     }
 
     /**
      * Get updatedAt
      *
-     * @return datetime
+     * @return integer
      */
     public function getUpdatedAt()
     {
-        return $this->updatedAt;
+        return date("H:i:s Y-m-d",$this->updatedAt);
     }
             
     

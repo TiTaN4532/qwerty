@@ -50,7 +50,7 @@ class ProductsAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('name', null, array('label' => 'Название'))
+            ->add('category', null, array('label' => 'Категории'))
         ;
     }
 
@@ -58,13 +58,15 @@ class ProductsAdmin extends Admin
     {
         $listMapper
             ->addIdentifier('name', null, array('label' => 'Название'))
-            ->add('created_at', null, array('label' => 'Дата создания'))
+           
                 ->add('_action', 'actions', array(
                 'actions' => array(
                     'view' => array(),
                     'edit' => array(),
                     'delete' => array(),
-                )));
+                )))
+                ->add('created_at', 'date', array('label' => 'Дата создания'))
+                ->add('updated_at', 'date', array('label' => 'Дата редактирования'));
         ;
     }
 //    public function postUpdate($object){

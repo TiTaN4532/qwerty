@@ -14,7 +14,7 @@ class DefaultController extends Controller
         $body='MainPage';
         
         $products = null;
-        
+
         if($slug){
             $category = $this->getDoctrine()->getRepository('MyProjectMainBundle:Category')->findOneBySlug($slug);
             $products = $this->getDoctrine()->getRepository('MyProjectMainBundle:Products')->findByCategory($category->getId());
