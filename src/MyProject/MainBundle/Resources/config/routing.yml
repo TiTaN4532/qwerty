@@ -1,10 +1,13 @@
+MyProjectMainBundle_homepage:
+    pattern:  /
+    defaults: { _controller: MyProjectMainBundle:Default:index}
 MyProjectMainBundle_contacts:
     pattern:  /contacts
     defaults: { _controller: MyProjectMainBundle:Default:contacts }
 
-MyProjectMainBundle_homepage:
+MyProjectMainBundle_category:
     pattern:  /{slug}
-    defaults: { _controller: MyProjectMainBundle:Default:index, slug: null }
+    defaults: { _controller: MyProjectMainBundle:Default:category, slug: null }
     
 MyProjectMainBundle_admin_products_view:
     pattern:  /admin/products
