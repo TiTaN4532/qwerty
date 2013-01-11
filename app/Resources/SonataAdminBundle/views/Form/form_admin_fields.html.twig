@@ -53,7 +53,7 @@ file that was distributed with this source code.
 
         <ul {{ block('widget_container_attributes_choice_widget') }}>
         {% for child in form %}
-            <li class='asd'>
+            <li>
                 {{ form_label(child, null, { 'in_list_checkbox' : true, 'widget' : form_widget(child) } ) }}
             </li>
         {% endfor %}
