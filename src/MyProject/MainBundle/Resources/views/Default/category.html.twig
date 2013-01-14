@@ -9,8 +9,8 @@
             <li>
                 <div class="polaroid polaroid_{{ key }}">
                 {% for key_img, image in product.images %} 
-                    <a href="/uploads/images/{{ image.name }}" style="{% if key_img != 0  %} display:none; {% endif %}">
-                    <img src="/uploads/images/{{ image.name }}" alt="{{ product.name }}" />
+                    <a href="http://www.titan-pav.pp.ua/titan/web/uploads/images/{{ image.name }}" style="{% if key_img != 0  %} display:none; {% endif %}">
+                    <img src="http://www.titan-pav.pp.ua/titan/web/uploads/images/{{ image.name }}" alt="{{ product.name }}" />
                     </a>
                 {% endfor %} 
                 </div>
